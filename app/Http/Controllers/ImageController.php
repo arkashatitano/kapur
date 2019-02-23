@@ -138,4 +138,52 @@ class ImageController extends Controller
         $result['file_name'] = '/media' .$file_name;
         return $result;
     }
+
+    public function uploadFile(Request $request){
+        $file = $request->image;
+        $file_name = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+
+        if($file->getClientSize() > 20097152){
+            $result['error'] = 'Максимальный размер загружаемого файла ~ 20 МБ';
+            $result['success'] = false;
+            return $result;
+        }
+
+        $destinationPath = $request->disk. '/'.date('Y').'/'.date('m').'/'.date('d');
+
+        $file_name = $destinationPath .'/' .\App\Http\Helpers::getTranslatedImage($file_name);
+
+        if(Storage::disk('image')->exists($file_name)){
+            $now = \DateTime::createFromFormat('U.u', microtime(true));
+            $file_name = $destinationPath .'/' .$now->format("Hisu").'.'.$extension;
+        }
+
+        Storage::disk('image')->put($file_name,  File::get($file));
+
+        $result['status'] = true;
+        $result['file_url'] = '/file' .$file_name;
+        $result['file_name'] = $file->getClientOriginalName();
+        $result['file_size'] = round($file->getClientSize() / 1024 / 1024,1);
+
+        return $result;
+    }
+
+    public function showFile($url){
+        $path = storage_path('app/image/' . $url);
+
+        if (!File::exists($path)) {
+            abort(404);
+        }
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    }
+
+
 }

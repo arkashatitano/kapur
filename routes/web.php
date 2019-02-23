@@ -34,6 +34,7 @@ Route::group([
     Route::resource('news', 'NewsController');
 
     Route::post('magazine/is_show', 'MagazineController@changeIsShow');
+    Route::get('magazine/image', 'MagazineController@getDocumentList');
     Route::resource('magazine', 'MagazineController');
 
     Route::post('expert/is_show', 'ExpertController@changeIsShow');
@@ -44,6 +45,9 @@ Route::group([
 
     Route::post('certificate/is_show', 'CertificateController@changeIsShow');
     Route::resource('certificate', 'CertificateController');
+
+    Route::post('document/is_show', 'DocumentController@changeIsShow');
+    Route::resource('document', 'DocumentController');
 
     Route::post('publication/is_show', 'PublicationController@changeIsShow');
     Route::resource('publication', 'PublicationController');
@@ -74,7 +78,9 @@ Route::group([
     'middleware' => 'web'
 ], function() {
     Route::post('image/upload', 'ImageController@uploadImage');
+    Route::post('image/upload/file', 'ImageController@uploadFile');
     Route::get('media/{file_name}', 'ImageController@getImage')->where('file_name', '.*');
+    Route::get('file/{file_name}', 'ImageController@showFile')->where('file_name','.*');
 });
 
 
@@ -90,6 +96,8 @@ Route::group([
     Route::get('contact', 'IndexController@showContact');
 
     Route::get('subscription', 'IndexController@showSubscription');
+
+    Route::get('documents', 'DocumentController@showDocumentList');
 
     Route::get('search', 'IndexController@showSearch');
 

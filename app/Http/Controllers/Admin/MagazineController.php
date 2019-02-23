@@ -242,4 +242,11 @@ class MagazineController extends Controller
         $action->save();
 
     }
+
+    public function getDocumentList(Request $request){
+        $request->magazine_pdf = $request->image_url;
+        return  view('admin.magazine.document-loop',[
+            'row' => $request
+        ]);
+    }
 }

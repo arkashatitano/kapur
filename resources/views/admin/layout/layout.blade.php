@@ -4,6 +4,7 @@
 @include('admin.layout.app')
 
 <body class="fix-header fix-sidebar card-no-border">
+<i class="ajax-loader" ></i>
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
@@ -26,9 +27,9 @@
           <!-- Logo icon --><b>
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
             <!-- Dark Logo icon -->
-            <img style="width: 90px" src="/img/logo.png" alt="KMA" class="dark-logo" />
+            <img style="width: 90px" src="/img/logo.png" alt="КАПУР" class="dark-logo" />
             <!-- Light Logo icon -->
-            <img style="width: 90px" src="/img/logo.png" alt="KMA" class="light-logo" />
+            <img style="width: 90px" src="/img/logo.png" alt="КАПУР" class="light-logo" />
           </b>
           <!--End Logo icon -->
           <!-- Logo text --><span>

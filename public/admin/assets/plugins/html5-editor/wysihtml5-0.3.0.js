@@ -5301,7 +5301,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
  *
  * Please note that this class can't benefit from the HTML5 sandbox attribute for the following reasons:
  *    - sandboxing doesn't work correctly with inlined content (src="javascript:'<html>...</html>'")
- *    - sandboxing of physical documents causes that the dom isn't accessible anymore from the outside (iframe.contentWindow, ...)
+ *    - sandboxing of physical document causes that the dom isn't accessible anymore from the outside (iframe.contentWindow, ...)
  *    - setting the "allow-same-origin" flag would fix that, but then still javascript and dom events refuse to fire
  *    - therefore the "allow-scripts" flag is needed, which then would deactivate any security, as the js executed inside the iframe
  *      can do anything as if the sandbox attribute wasn't set

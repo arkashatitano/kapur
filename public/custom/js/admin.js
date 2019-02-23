@@ -156,6 +156,41 @@ $("#image2_form").submit(function(event) {
     });
 });
 
+function uploadDocument(){
+    $('.ajax-loader').css('display','block');
+    $("#image_form_document").submit();
+}
+
+$("#image_form_document").submit(function(event) {
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+        url:'/image/upload/file',
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: formData,
+        async: true,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            $('.ajax-loader').css('display','none');
+            if(data.success == 0){
+                showError(data.error);
+                return;
+            }
+            $('.pdf_url').val(data.file_url);
+            $('.pdf_size').val(data.file_size);
+            $('.nav-tabs li').removeClass('active');
+            $('.tab-pane').removeClass('active');
+            $('#pdf').addClass('active');
+            $('.photo-tab').closest('li').addClass('active');
+            getDocumentList(data.file_url);
+        }
+    });
+});
 
 function searchBySort() {
     href = '?search=' + $('#search_word').val();
@@ -366,6 +401,18 @@ function getImageList(image_url){
     });
 }
 
+function getDocumentList(image_url){
+    $.ajax({
+        type: 'GET',
+        url: "/admin/magazine/image",
+        data:{
+            image_url: image_url
+        },
+        success: function(data){
+            $('#photo_content').html(data);
+        }
+    });
+}
 
 
 function getCategoryListByParent(ob,type) {
