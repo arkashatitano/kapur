@@ -150,7 +150,7 @@
 <script src="/custom/js/jquery.js"></script>
 <script src="/static/js/main.min.js"></script>
 <script src="/static/js/separate-js/scripts.js"></script>
-<script src="/custom/js/custom.js?v=16"></script>
+<script src="/custom/js/custom.js?v=17"></script>
 
 
 <script>

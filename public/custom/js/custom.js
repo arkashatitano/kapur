@@ -437,19 +437,27 @@ function showMessage(message){
     return false;
 }
 
-function addRequest() {
+function addRegister() {
     $('.ajax-loader').fadeIn(100);
     $.ajax({
-        url:'/ajax/request',
+        url:'/ajax/register',
         type: 'POST',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
             user_name: $('#user_name').val(),
+            seminar_id: $('#seminar_id').val(),
             phone: $('#phone').val(),
             email: $('#email').val(),
-            comment: $('#comment').val()
+            organization_name: $('#organization_name').val(),
+            position: $('#position').val(),
+            work_phone: $('#work_phone').val(),
+            fax: $('#fax').val(),
+            city_name: $('#city_name').val(),
+            company_info: $('#company_info').val(),
+            director_name: $('#director_name').val(),
+            pay_type: $('.pay_type:checked').val()
         },
         success: function (data) {
             $('.ajax-loader').fadeOut(100);
@@ -458,153 +466,10 @@ function addRequest() {
                 return;
             }
             $('#comment').val('');
-            $('#modal-success').modal('show');
-            //showMessage(data.message);
-        }
-    });
-}
-
-function addSubscription() {
-    $('.ajax-loader').fadeIn(100);
-    $.ajax({
-        url:'/ajax/subscription',
-        type: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-            email: $('#email_subscribe').val(),
-            user_name: $('#name_subscribe').val()
-        },
-        success: function (data) {
-            $('.ajax-loader').fadeOut(100);
-            if(data.status == 0){
-                showError(data.error);
-                return;
-            }
-            $('#email_subscribe').val('');
-            $('#modal-subs').modal('hide');
+            $('#modal-register').modal('hide');
             showMessage(data.message);
         }
     });
 }
 
 
-$("#money").keyup(function() {
-    calculator();
-});
-
-function calculator() {
-    $('#add_sum').css('display','none');
-
-    $('#sum_result').val('');
-
-    if($('#currency').val() != "tenge" && $('#currency').val() != "dollar"){
-        showError('Выберите валюту');
-        return;
-    }
-
-    console.log($('#money').val());
-
-    var sum = 0;
-    if($('#currency').val() == 'tenge' && $('#money').val() > 0){
-        if($('#money').val() <= 3000000){
-            sum = 270000;
-        }
-        else if($('#money').val() > 3000000 && $('#money').val() <= 15000000){
-            sum = 270000 + (($('#money').val() - 3000000) * 2 / 100);
-        }
-        else if($('#money').val() > 15000000 && $('#money').val() <= 30000000){
-            sum = 600000 + (($('#money').val() - 15000000) * 3 / 100);
-        }
-        else if($('#money').val() > 30000000 && $('#money').val() <= 60000000){
-            sum = 1050000 + (($('#money').val() - 30000000) * 3 / 100);
-        }
-        else if($('#money').val() > 60000000 && $('#money').val() <= 1500000000){
-            sum = 1800000 + (($('#money').val() - 60000000) * 3.66 / 100);
-        }
-        else if($('#money').val() > 1500000000 && $('#money').val() <= 3000000000){
-            sum = 1800000 + (($('#money').val() - 1500000000) * 3.66 / 100);
-        }
-        else if($('#money').val() > 3000000000 && $('#money').val() <= 150000000000){
-            sum = $('#money').val() * 3 / 100;
-        }
-        else if($('#money').val() > 150000000000 && $('#money').val() <= 300000000000){
-            sum = $('#money').val() * 2 / 100;
-        }
-        else if($('#money').val() > 300000000000){
-            sum = $('#money').val() * 1.5 / 100;
-        }
-        if(sum > 0){
-            sum -= 70000;
-            sum = sum + (sum * 12 / 100);
-            sum += 78400;
-            sum = Math.round(sum,1);
-        }
-        sum += ' тенге';
-    }
-    else if($('#currency').val() == 'dollar' && $('#money').val() > 0){
-        if($('#money').val() <= 10000){
-            sum = 900;
-        }
-        else if($('#money').val() > 10000 && $('#money').val() <= 50000){
-            sum = 900 + (($('#money').val() - 10000) * 2 / 100);
-        }
-        else if($('#money').val() > 50000 && $('#money').val() <= 100000){
-            sum = 2000 + (($('#money').val() - 50000) * 3 / 100);
-        }
-        else if($('#money').val() > 100000 && $('#money').val() <= 200000){
-            sum = 3500 + (($('#money').val() - 100000) * 3 / 100);
-        }
-        else if($('#money').val() > 200000 && $('#money').val() <= 500000){
-            sum = 6000 + (($('#money').val() - 200000) * 3.66 / 100);
-        }
-        else if($('#money').val() > 500000 && $('#money').val() <= 1000000){
-            sum = 15000 + (($('#money').val() - 500000) * 3 / 100);
-        }
-        else if($('#money').val() > 1000000 && $('#money').val() <= 5000000){
-            sum = $('#money').val() * 3 / 100;
-        }
-        else if($('#money').val() > 5000000 && $('#money').val() <= 10000000){
-            sum = $('#money').val() * 2 / 100;
-        }
-        else if($('#money').val() > 10000000){
-            sum = $('#money').val() * 1.5 / 100;
-        }
-        if(sum > 0){
-            //sum -= 70000;
-            sum = sum + (sum * 12 / 100);
-            sum = Math.round(sum,1);
-        }
-        sum += '$ *';
-    }
-
-    if($('#currency').val() == 'dollar'){
-        $('#add_sum').css('display','block');
-    }
-
-    $('#sum_result').val(sum);
-
-    /*$.ajax({
-        url:'/ajax/calculator',
-        type: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-            money: $('#money').val(),
-            currency: $('#currency').val()
-        },
-        success: function (data) {
-            if(data.status == 0){
-                showError(data.error);
-                return;
-            }
-            if($('#currency').val() == 'dollar'){
-                $('#add_sum').css('display','block');
-            }
-
-            $('#sum_result').val(data.sum);
-        }
-    });*/
-}

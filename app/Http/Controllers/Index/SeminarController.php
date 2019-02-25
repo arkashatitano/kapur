@@ -6,7 +6,9 @@ use App\Http\Helpers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Expert;
 use App\Models\Menu;
+use App\Models\Order;
 use App\Models\Seminar;
 use App\Models\Product;
 use App\Models\Rubric;
@@ -66,12 +68,57 @@ class SeminarController extends Controller
 
         if($original_url != '/seminar/'.$url) return redirect($original_url,301);
 
+        $expert = Expert::where('seminar_id',$seminar->seminar_id)->orderBy('sort_num','asc')->get();
 
         return view('index.seminar.seminar-detail',
             [
                 'seminar' => $seminar,
-                'menu' => $menu
+                'menu' => $menu,
+                'expert' => $expert
             ]);
+    }
+
+    public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'user_name' => 'required',
+            'seminar_id' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'organization_name' => 'required',
+            'position' => 'required',
+            'work_phone' => 'required',
+            'city_name' => 'required',
+            'pay_type' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            $messages = $validator->errors();
+            $error = $messages->all();
+            $result['status'] = false;
+            $result['error'] = 'Вам следует указать необходимые данные';
+            return $result;
+        }
+
+        $contact = new Order();
+        $contact->user_name = $request->user_name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->seminar_id = $request->seminar_id;
+        $contact->organization_name = $request->organization_name;
+        $contact->position = $request->position;
+        $contact->work_phone = $request->work_phone;
+        $contact->city_name = $request->city_name;
+        $contact->pay_type = $request->pay_type;
+        $contact->director_name = $request->director_name;
+        $contact->company_info = $request->company_info;
+        $contact->fax = $request->fax;
+        $contact->is_show = 1;
+        $contact->save();
+
+        $result['status'] = true;
+        $result['message'] = 'Успешно отправлено';
+
+        return response()->json($result);
     }
 
 }

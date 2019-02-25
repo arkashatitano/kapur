@@ -28,15 +28,15 @@ class OrderController extends Controller
 
     public function index(Request $request)
     {
-        $row = Order::orderBy('order_id','desc')
+        $row = Order::leftJoin('seminar','seminar.seminar_id','=','order.seminar_id')
+                     ->orderBy('order_id','desc')
                       ->select('*',
                           'order.created_at as date');
 
         if(isset($request->search))
             $row->where(function($query) use ($request){
                $query->where('user_name','like','%' .$request->search .'%')
-              ->orWhere('phone','like','%' .$request->search .'%')
-              ->orWhere('order.order_text','like','%' .$request->search .'%');
+              ->orWhere('phone','like','%' .$request->search .'%');
             });
 
         if(isset($request->active))
@@ -47,7 +47,7 @@ class OrderController extends Controller
 
         return  view('admin.order.order',[
             'row' => $row,
-            'title' => 'Отзывы',
+            'title' => 'Заявки',
             'request' => $request
         ]);
     }

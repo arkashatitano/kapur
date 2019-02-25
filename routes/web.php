@@ -90,7 +90,8 @@ Route::group([
     'namespace' => 'Index',
 ], function() {
 
-    
+    Route::post('ajax/register', 'SeminarController@register');
+
     Route::get('/', 'IndexController@index');
 
     Route::get('contact', 'IndexController@showContact');
@@ -98,8 +99,6 @@ Route::group([
     Route::get('subscription', 'IndexController@showSubscription');
 
     Route::get('documents', 'DocumentController@showDocumentList');
-
-    Route::get('search', 'IndexController@showSearch');
 
     Route::get('certificate', 'CertificateController@showCertificateList');
 

@@ -74,16 +74,10 @@
       <li class="treeview @if(isset($menu) && $menu == 'order') active @endif">
         <a href="/admin/order?active=1">
           <i class="fa fa-list"></i>
-          <span>Обратная связь</span>
           <? $count = \App\Models\Order::where('is_show','=','1')->count();?>
-          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count">{{$count}}</span>
-        </a>
-      </li>
-      <li class="treeview @if(isset($menu) && $menu == 'subscription') active @endif">
-        <a href="/admin/subscription?active=1">
-          <i class="fa fa-list"></i>
-          <span>Подписка</span>
-          <? $count = \App\Models\Subscription::where('is_show','=','1')->count();?>
+
+          <span>Обратная связь <span style="color: red; font-weight: bold">@if($count > 0){{$count}}@endif</span></span>
+
           <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count">{{$count}}</span>
         </a>
       </li>

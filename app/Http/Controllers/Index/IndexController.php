@@ -120,58 +120,9 @@ class IndexController extends Controller
             ]);
     }
 
-    public function addRequest(Request $request){
-        $validator = Validator::make($request->all(), [
-            'user_name' => 'required',
-            'comment' => 'required',
-        ]);
 
-        if ($validator->fails()) {
-            $messages = $validator->errors();
-            $error = $messages->all();
-            $result['status'] = false;
-            $result['error'] = 'Вам следует указать необходимые данные';
-            return $result;
-        }
 
-        $contact = new Order();
-        $contact->user_name = $request->user_name;
-        $contact->phone = $request->phone;
-        $contact->email = $request->email;
-        $contact->order_text = $request->comment;
-        $contact->is_show = 1;
-        $contact->save();
 
-        $result['status'] = true;
-        $result['message'] = 'Успешно отправлено';
-
-        return response()->json($result);
-    }
-
-    public function addSubscription(Request $request){
-        $validator = Validator::make($request->all(), [
-            'email' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            $messages = $validator->errors();
-            $error = $messages->all();
-            $result['status'] = false;
-            $result['error'] = 'Вам следует указать необходимые данные';
-            return $result;
-        }
-
-        $contact = new Subscription();
-        $contact->email = $request->email;
-        $contact->user_name = $request->email;
-        $contact->is_show = 1;
-        $contact->save();
-
-        $result['status'] = true;
-        $result['message'] = 'Успешно подписались';
-
-        return response()->json($result);
-    }
 
     public function showSearch(Request $request)
     {

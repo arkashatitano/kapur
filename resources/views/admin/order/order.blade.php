@@ -49,7 +49,7 @@
                             <th>ФИО </th>
                             <th>Телефон </th>
                             <th>Email </th>
-                            <th>Коммент </th>
+                            <th>Инфо </th>
                             <th>Дата</th>
                             <th style="width: 15px"></th>
                             <th class="no-sort" style="width: 0px; text-align: center; padding-right: 16px; padding-left: 14px;" >
@@ -95,7 +95,14 @@
                                     </div>
                                 </td>
                                 <td>
-                                    {{ $val->order_text }}
+                                    <p><strong>Организация: </strong>{{$val->organization_name}}</p>
+                                    <p><strong>Должность: </strong>{{$val->position}}</p>
+                                    <p><strong>Служебный номер: </strong>{{$val->work_phone}}</p>
+                                    <p><strong>Факс: </strong>{{$val->fax}}</p>
+                                    <p><strong>Город: </strong>{{$val->city_name}}</p>
+                                    <p><strong>Реквизиты компании: </strong>{{$val->company_info}}</p>
+                                    <p><strong>Директор: </strong>{{$val->director_name}}</p>
+                                    <p><strong>Форма оплаты: </strong>{{$val->pay_type}}</p>
                                 </td>
                                 <td>
                                     {{ \App\Http\Helpers::getDateFormat($val->date)}}
@@ -131,5 +138,9 @@
     </div>
 
 
-
+    <style>
+        strong {
+            font-weight: bold !important;
+        }
+    </style>
 @endsection

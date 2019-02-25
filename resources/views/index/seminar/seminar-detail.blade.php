@@ -45,7 +45,7 @@
                     <header class="article__header -seminar">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat($seminar->seminar_date)}}</div>
                         <h1 class="article__title">{!! $seminar['seminar_name_'.$lang] !!}</h1>
-                        <a href="#" class="button -underline_white article__button">Регистрация</a>
+                        <a href="#modal-register" class="button -underline_white article__button"  data-gutter="#modal-register" data-toggle="modal">Регистрация</a>
                         <div class="article__img">
                             <img src="{{$seminar['seminar_image']}}" alt="">
                         </div>
@@ -64,6 +64,31 @@
                                     </div>
                                 @endif
 
+                                @if(count($expert) > 0)
+
+                                    <div class="expert">
+                                        <h3>Приглашенные эксперты</h3>
+
+                                        @foreach($expert as $item)
+
+                                            <div class="expert__inner">
+                                                <div class="expert__img">
+                                                    <img src="{{$item['expert_image']}}?width=350&height=400" alt="">
+                                                </div>
+                                                <div class="expert__content">
+                                                    <div class="expert__title">{{$item['expert_name_'.$lang]}}</div>
+                                                    <div class="expert__text">
+                                                        {!!$item['expert_text_'.$lang]!!}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        @endforeach
+
+                                    </div>
+
+                                @endif
+
                             </div>
                             <div class="col-lg-4 order-lg-first">
                                 <div class="article-social">
@@ -74,12 +99,9 @@
                         </div>
                     </div>
                 </article>
-                <!--/. Article End -->
-
             </section>
-            <!--/. Container End -->
 
-
+            @include('index.seminar.register-modal')
 
         </div>
     </main>
