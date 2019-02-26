@@ -117,13 +117,13 @@
                                                 <label>Ссылка на другую страницу (если есть)</label>
                                                 <input value="{{ $row->menu_redirect }}" type="text" class="form-control" name="menu_redirect" placeholder="Введите">
                                             </div>
-                                            <div class="form-group">
+                                          {{--  <div class="form-group">
                                                 <label>Отображать на pre-header</label>
                                                 <select name="is_show_header" data-placeholder="Выберите" class="form-control">
                                                     <option @if($row->is_show_header == 0) selected @endif value="0">Нет</option>
                                                     <option @if($row->is_show_header == 1) selected @endif value="1">Да</option>
                                                 </select>
-                                            </div>
+                                            </div>--}}
                                             <div class="form-group">
                                                 <label>Отображать на header</label>
                                                 <select name="is_show_main" data-placeholder="Выберите" class="form-control">
@@ -131,13 +131,13 @@
                                                     <option @if($row->is_show_main == 1) selected @endif value="1">Да</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
+                                            {{--<div class="form-group">
                                                 <label>Отображать в футере</label>
                                                 <select name="is_show_footer" data-placeholder="Выберите" class="form-control">
                                                     <option @if($row->is_show_footer == 0) selected @endif value="0">Нет</option>
                                                     <option @if($row->is_show_footer == 1) selected @endif value="1">Да</option>
                                                 </select>
-                                            </div>
+                                            </div>--}}
                                             <div class="form-group">
                                                 <label>Порядковый номер сортировки</label>
                                                 <input value="{{ $row->sort_num }}" type="text" class="form-control" name="sort_num" placeholder="">
