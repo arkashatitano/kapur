@@ -137,17 +137,6 @@ class IndexController extends Controller
             ->take(10)
             ->get();
 
-        $arbitrator_list = Arbitrator::where('is_show',1)
-            ->orderBy('sort_num','asc')
-            ->where('arbitrator_name_'.$this->lang,'!=','')
-            ->where(function($query) use ($request){
-                $query->where('arbitrator_name_'.$this->lang,'like','%' .$request->q .'%')
-                    ->orWhere('arbitrator_desc_'.$this->lang,'like','%' .$request->q .'%')
-                    ->orWhere('arbitrator_text_'.$this->lang,'like','%' .$request->q .'%');
-            })
-            ->take(10)
-            ->get();
-
         $menu_list = \App\Models\Menu::where('is_show',1)
                     ->orderBy('sort_num','asc')
                     ->where(function($query) use ($request){
@@ -160,7 +149,6 @@ class IndexController extends Controller
             [
                 'news_list' => $news_list,
                 'menu_list' => $menu_list,
-                'arbitrator_list' => $arbitrator_list
             ]);
     }
 }

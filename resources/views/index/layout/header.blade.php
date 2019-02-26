@@ -21,7 +21,7 @@
                     <a href="{{\App\Http\Helpers::setSessionLang('en',$request)}}" class="lang__link @if($lang == 'en') -active @endif">eng</a>
                 </li>
             </ul>
-            <a href="#" class="header__search" data-toggle="modal" data-target="#modal-search">Поиск</a>
+            <a href="/search" class="header__search">Поиск</a>
         </div>
     </div>
 </header>

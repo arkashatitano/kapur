@@ -96,6 +96,8 @@ Route::group([
 
     Route::get('contact', 'IndexController@showContact');
 
+    Route::get('search', 'IndexController@showSearch');
+
     Route::get('subscription', 'IndexController@showSubscription');
 
     Route::get('documents', 'DocumentController@showDocumentList');
