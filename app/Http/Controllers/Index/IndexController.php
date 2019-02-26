@@ -126,6 +126,10 @@ class IndexController extends Controller
 
     public function showSearch(Request $request)
     {
+        if($request->q == ''){
+            $request->q = '###';
+        }
+
         $news_list = News::where('news.is_show',1)
             ->orderBy('news_date','desc')
             ->where('news_name_'.$this->lang,'!=','')
@@ -145,10 +149,28 @@ class IndexController extends Controller
                     })
                     ->get();
 
+        $seminar_list = Seminar::where('seminar.is_show',1)
+                        ->orderBy('seminar_date','desc')
+                        ->where(function($query) use ($request){
+                            $query->where('seminar_name_'.$this->lang,'like','%' .$request->q .'%');
+                        })
+                        ->take(10)
+                        ->get();
+
+        $magazine_list = Magazine::where('magazine.is_show',1)
+                        ->orderBy('magazine_date','desc')
+                        ->where(function($query) use ($request){
+                            $query->where('magazine_name_'.$this->lang,'like','%' .$request->q .'%');
+                        })
+                        ->take(10)
+                        ->get();
+
         return  view('index.search.search',
             [
                 'news_list' => $news_list,
                 'menu_list' => $menu_list,
+                'seminar_list' => $seminar_list,
+                'magazine_list' => $magazine_list,
             ]);
     }
 }
