@@ -165,6 +165,10 @@ class IndexController extends Controller
                         ->take(10)
                         ->get();
 
+        if($request->q == '###'){
+            $request->q = '';
+        }
+
         return  view('index.search.search',
             [
                 'news_list' => $news_list,
