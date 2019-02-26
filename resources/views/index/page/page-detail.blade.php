@@ -29,6 +29,13 @@
                     <li class="breadcrumbs__item">
                         <a href="/" class="breadcrumbs__link">{{Lang::get('app.homepage')}}</a>
                     </li>
+
+                    @if($menu->parent_name != '')
+                        <li class="breadcrumbs__item">
+                            <a href="#" class="breadcrumbs__link"> {{$menu['parent_name']}}</a>
+                        </li>
+                    @endif
+
                     <li class="breadcrumbs__item -active">{{$menu['menu_name_'.$lang]}}</li>
                 </ul>
 
