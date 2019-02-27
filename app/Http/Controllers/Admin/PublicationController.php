@@ -57,6 +57,7 @@ class PublicationController extends Controller
         $row = new Publication();
         $row->publication_image = '/default.jpg';
         $row->publication_date = date('d.m.Y H:i');
+        $row->publication_price = 0;
 
         return  view('admin.publication.publication-edit', [
             'title' => 'Добавить статью',
@@ -100,6 +101,7 @@ class PublicationController extends Controller
         $publication->publication_meta_keywords_en = $request->publication_meta_keywords_en;
         
         $publication->publication_image = $request->publication_image;
+        $publication->publication_price = $request->publication_price?:0;
         $publication->category_id = $request->category_id;
         $publication->user_id = Auth::user()->user_id;
         $publication->is_show = 1;
@@ -178,6 +180,7 @@ class PublicationController extends Controller
         $publication->publication_meta_keywords_en = $request->publication_meta_keywords_en;
 
         $publication->publication_image = $request->publication_image;
+        $publication->publication_price = $request->publication_price?:0;
         $publication->category_id = $request->category_id;
         
         $timestamp = strtotime($request->publication_date);

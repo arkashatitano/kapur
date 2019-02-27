@@ -50,6 +50,7 @@
                             <th style="width: 30px">№</th>
                             <th>Фото </th>
                             <th>Название </th>
+                            <th>Стоимость </th>
                             <th>Дата</th>
                             <th style="width: 15px"></th>
                             <th style="width: 15px"></th>
@@ -76,6 +77,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
 
                         @foreach($row as $key => $val)
@@ -94,6 +96,9 @@
                                     <a target="_blank" href="{{ $val['publication_url_ru']}}">
                                         {{ $val['publication_name_ru']}}
                                     </a>
+                                </td>
+                                <td>
+                                    {{ $val['publication_price']}}
                                 </td>
                                 <td>
                                     {{ $val['date']}}

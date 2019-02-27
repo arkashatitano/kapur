@@ -124,6 +124,10 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
+                                                <label>Стоимость статьи</label>
+                                                <input value="{{ $row->publication_price }}" type="number" class="form-control" name="publication_price" placeholder="Введите">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Дата</label>
                                                 <input id="date-format" value="{{ $row->publication_date }}" type="text" class="form-control datetimepicker-input" name="publication_date" placeholder="">
                                             </div>

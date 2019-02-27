@@ -54,6 +54,9 @@
                     <div class="article__body">
                         <div class="row">
                             <div class="col-lg-8">
+
+                                @if($publication->publication_price == 0)
+
                                 <div>
                                     {!! $publication['publication_text_'.$lang] !!}
                                 </div>
@@ -62,6 +65,8 @@
                                 <div class="article__info">
                                     {!! \App\Http\Helpers::getInfoText(18) !!}
                                 </div>
+                                @endif
+
                                 @endif
 
                             </div>
@@ -78,6 +83,16 @@
 
             </section>
             <!--/. Container End -->
+
+            @if($publication->publication_price > 0)
+                <div class="subs">
+                    <div class="container">
+                        <h3 class="subs__title">Данная статья является платной и доступна только после покупки. Стоимость: {{$publication->publication_price}} тг.</h3>
+                        <a href="#" class="button -underline_white">Купить статью</a>
+                    </div>
+                </div>
+            @endif
+
 
             @if(count($other_publication_list) > 0)
 
