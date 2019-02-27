@@ -85,6 +85,7 @@
             <!--/. Container End -->
 
             @if($publication->publication_price > 0)
+                <div class="divider mt-5"></div>
                 <div class="subs">
                     <div class="container">
                         <h3 class="subs__title">Данная статья является платной и доступна только после покупки. Стоимость: {{$publication->publication_price}} тг.</h3>
