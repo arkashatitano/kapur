@@ -36,7 +36,7 @@
                         <a href="/" class="breadcrumbs__link">{{Lang::get('app.homepage')}}</a>
                     </li>
                     <li class="breadcrumbs__item">
-                        <a href="/magazine" class="breadcrumbs__link">{{$menu['menu_name_'.$lang]}}</a>
+                        <a href="/magazines" class="breadcrumbs__link">{{$menu['menu_name_'.$lang]}}</a>
                     </li>
                     <li class="breadcrumbs__item -active">{{$magazine['magazine_name_'.$lang]}}</li>
                 </ul>
