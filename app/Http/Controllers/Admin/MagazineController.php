@@ -100,6 +100,7 @@ class MagazineController extends Controller
         $magazine->magazine_number = $request->magazine_number;
         $magazine->magazine_pdf = $request->magazine_pdf;
         $magazine->magazine_price = $request->magazine_price?:0;
+        $magazine->magazine_price_delivery = $request->magazine_price_delivery?:0;
         $magazine->is_show_main = $request->is_show_main;
         $magazine->user_id = Auth::user()->user_id;
         $magazine->is_show = 1;
@@ -181,6 +182,7 @@ class MagazineController extends Controller
         $magazine->magazine_number = $request->magazine_number;
         $magazine->magazine_pdf = $request->magazine_pdf;
         $magazine->magazine_price = $request->magazine_price?:0;
+        $magazine->magazine_price_delivery = $request->magazine_price_delivery?:0;
         $magazine->is_show_main = $request->is_show_main;
 
         $timestamp = strtotime($request->magazine_date);

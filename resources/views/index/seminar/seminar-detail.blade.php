@@ -89,6 +89,9 @@
 
                                 @endif
 
+                                <a href="#modal-register" class="button -default -md mt-4" data-gutter="#modal-register" data-toggle="modal">Регистрация</a>
+
+
                             </div>
                             <div class="col-lg-4 order-lg-first">
                                 <div class="article-social">

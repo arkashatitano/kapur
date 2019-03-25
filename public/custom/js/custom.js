@@ -472,4 +472,49 @@ function addRegister() {
     });
 }
 
+function payMagazine(){
+    $('#modal-pay').modal('hide');
+
+    if($('.pay_type:checked').val() == 'cash'){
+        $('#pay-information').modal('show');
+        $('#modal-pay').modal('hide');
+    }
+    else {
+
+    }
+}
+
+function buyByCashMagazine() {
+    $('.ajax-loader').fadeIn(100);
+    $.ajax({
+        url:'/ajax/magazine/buy/cash',
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+            user_name: $('#user_name').val(),
+            magazine_id: $('#magazine_id').val(),
+            phone: $('#phone').val(),
+            email: $('#email').val(),
+            organization_name: $('#organization_name').val(),
+            position: $('#position').val(),
+            work_phone: $('#work_phone').val(),
+            fax: $('#fax').val(),
+            city_name: $('#city_name').val(),
+            company_info: $('#company_info').val(),
+            director_name: $('#director_name').val()
+        },
+        success: function (data) {
+            $('.ajax-loader').fadeOut(100);
+            if(data.status == 0){
+                showError(data.error);
+                return;
+            }
+            $('#comment').val('');
+            $('#pay-information').modal('hide');
+            showMessage(data.message);
+        }
+    });
+}
 

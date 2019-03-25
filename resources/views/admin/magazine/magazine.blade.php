@@ -50,6 +50,8 @@
                             <th style="width: 30px">№</th>
                             <th>Фото </th>
                             <th>Название </th>
+                            <th>Стоимость </th>
+                            <th>Стоимость с доставкой</th>
                             <th>Ссылка на файл </th>
                             <th>Дата</th>
                             <th style="width: 15px"></th>
@@ -78,6 +80,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
 
                         @foreach($row as $key => $val)
@@ -96,6 +100,12 @@
                                     <a target="_blank" href="{{ $val['magazine_url_ru']}}">
                                         {{ $val['magazine_name_ru']}}
                                     </a>
+                                </td>
+                                <td>
+                                    {{ $val['magazine_price']}}тг
+                                </td>
+                                <td>
+                                    {{ $val['magazine_price_delivery']}}тг
                                 </td>
                                 <td>
                                     @if($val->magazine_pdf != '')

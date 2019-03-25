@@ -7,10 +7,10 @@
         <div class="row page-titles">
             <div class="col-md-8 col-8 align-self-center">
                 <h3 class="text-themecolor m-b-0 m-t-0 d-inline-block menu-tab">
-                    <a href="/admin/order?active=1" class="@if($request->active == '1') active-page @endif">Новые</a>
+                    <a href="/admin/order/seminar?active=1" class="@if($request->active == '1') active-page @endif">Новые</a>
                 </h3>
                 <h3 class="text-themecolor m-b-0 m-t-0 d-inline-block menu-tab second-tab" >
-                    <a href="/admin/order" class="@if(!isset($request->active) || $request->active == '0') active-page @endif">Прочитанные</a>
+                    <a href="/admin/order/seminar" class="@if(!isset($request->active) || $request->active == '0') active-page @endif">Прочитанные</a>
                 </h3>
                 <div class="clear-float"></div>
             </div>
@@ -47,8 +47,7 @@
                         <tr style="border: 1px">
                             <th style="width: 30px">№</th>
                             <th>ФИО </th>
-                            <th>Журнал </th>
-                            <th>Стоимость </th>
+                            <th>Семинар </th>
                             <th style="min-width: 300px">Инфо </th>
                             <th>Оплата</th>
                             <th>Дата</th>
@@ -74,7 +73,6 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                         </tr>
 
                         @foreach($row as $key => $val)
@@ -88,12 +86,7 @@
                                 </td>
                                 <td class="arial-font">
                                     <div>
-                                        {{ $val->magazine_name_ru }}
-                                    </div>
-                                </td>
-                                <td class="arial-font">
-                                    <div>
-                                        {{ $val->price }}тг
+                                        {{ $val->seminar_name_ru }}
                                     </div>
                                 </td>
                                 <td>

@@ -11,6 +11,26 @@
           <i class="mdi mdi-bank"></i><span class="hide-menu">Меню </span>
         </a>
       </li>
+      <li class="treeview @if(isset($menu) && $menu == 'order') active @endif">
+        <a href="/admin/order?active=1">
+          <i class="fa fa-list"></i>
+          <? $count = \App\Models\Order::where('is_show','=','1')->where('magazine_id','>',0)->count();?>
+
+          <span>Заявки на журнал</span>
+
+          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count">{{$count}}</span>
+        </a>
+      </li>
+      <li class="treeview @if(isset($menu) && $menu == 'order-seminar') active @endif">
+        <a href="/admin/order/seminar?active=1">
+          <i class="fa fa-list"></i>
+          <? $count = \App\Models\Order::where('is_show','=','1')->where('seminar_id','>',0)->count();?>
+
+          <span>Заявки на семинар</span>
+
+          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count2">{{$count}}</span>
+        </a>
+      </li>
       <li @if(isset($menu) && $menu == 'magazine') class="active"  @endif>
         <a class="waves-effect waves-dark" href="/admin/magazine" aria-expanded="false">
           <i class="mdi mdi-bank"></i><span class="hide-menu">Журналы</span>
@@ -71,16 +91,7 @@
           <i class="mdi mdi-bank"></i><span class="hide-menu">Члены ассоциации</span>
         </a>
       </li>
-      <li class="treeview @if(isset($menu) && $menu == 'order') active @endif">
-        <a href="/admin/order?active=1">
-          <i class="fa fa-list"></i>
-          <? $count = \App\Models\Order::where('is_show','=','1')->count();?>
 
-          <span>Обратная связь <span style="color: red; font-weight: bold">@if($count > 0){{$count}}@endif</span></span>
-
-          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count">{{$count}}</span>
-        </a>
-      </li>
       <li @if(isset($menu) && $menu == 'news') class="active"  @endif>
         <a class="waves-effect waves-dark" href="/admin/news" aria-expanded="false">
           <i class="mdi mdi-bank"></i><span class="hide-menu">Новости</span>

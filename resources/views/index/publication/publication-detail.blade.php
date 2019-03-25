@@ -41,7 +41,7 @@
                     <li class="breadcrumbs__item -active">{{$publication['publication_name_'.$lang]}}</li>
                 </ul>
 
-                <article class="article">
+                <article class="article @if($publication->publication_price > 0) -demo @endif">
                     <header class="article__header -seminar">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat($publication->publication_date)}}</div>
                         <h1 class="article__title">{!! $publication['publication_name_'.$lang] !!}</h1>
@@ -55,17 +55,25 @@
                         <div class="row">
                             <div class="col-lg-8">
 
+
+
                                 @if($publication->publication_price == 0)
 
-                                <div>
-                                    {!! $publication['publication_text_'.$lang] !!}
-                                </div>
+                                    <div>
+                                        {!! $publication['publication_text_'.$lang] !!}
+                                    </div>
 
-                                @if(\App\Http\Helpers::getInfoText(18) != '')
-                                <div class="article__info">
-                                    {!! \App\Http\Helpers::getInfoText(18) !!}
-                                </div>
-                                @endif
+                                    @if(\App\Http\Helpers::getInfoText(18) != '')
+                                    <div class="article__info">
+                                        {!! \App\Http\Helpers::getInfoText(18) !!}
+                                    </div>
+                                    @endif
+
+                                @else
+
+                                    <div>
+                                        {!! substr($publication['publication_text_'.$lang], 0, 2100) !!}
+                                    </div>
 
                                 @endif
 

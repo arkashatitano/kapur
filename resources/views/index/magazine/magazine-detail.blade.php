@@ -47,7 +47,7 @@
                         <h1 class="article__title">{!! $magazine['magazine_name_'.$lang] !!}</h1>
 
                         @if($magazine->magazine_price > 0)
-                            <a href="#" class="button -underline_white article__button">Купить журнал</a>
+                            <a href="#modal-pay" class="button -underline_white article__button" data-gutter="#modal-pay" data-toggle="modal">Купить журнал</a>
                         @endif
 
                         <div class="article__img">
@@ -69,7 +69,7 @@
                                 @endif
 
                                 @if($magazine->magazine_price > 0)
-                                 <a href="#" class="button -default -md mt-4">Купить журнал</a>
+                                 <a href="#modal-pay" class="button -default -md mt-4" data-gutter="#modal-pay" data-toggle="modal">Купить журнал</a>
                                 @endif
 
                             </div>
@@ -86,8 +86,11 @@
 
             </section>
             <!--/. Container End -->
+            @if($magazine->magazine_price > 0)
 
+                @include('index.magazine.pay-modal')
 
+            @endif
 
         </div>
     </main>

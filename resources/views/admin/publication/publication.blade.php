@@ -98,7 +98,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    {{ $val['publication_price']}}
+                                    {{ $val['publication_price']}}тг
                                 </td>
                                 <td>
                                     {{ $val['date']}}

@@ -58,6 +58,7 @@ Route::group([
     Route::post('slider/is_show', 'SliderController@changeIsShow');
     Route::resource('slider', 'SliderController');
 
+    Route::get('order/seminar', 'OrderController@seminar');
     Route::post('order/is_show', 'OrderController@changeIsShow');
     Route::resource('order', 'OrderController');
 
@@ -91,6 +92,7 @@ Route::group([
 ], function() {
 
     Route::post('ajax/register', 'SeminarController@register');
+    Route::post('ajax/magazine/buy/cash', 'MagazineController@buyByCash');
 
     Route::get('/', 'IndexController@index');
 
