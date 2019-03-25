@@ -90,6 +90,7 @@
 
                 @include('index.magazine.pay-modal')
 
+
             @endif
 
         </div>
