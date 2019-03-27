@@ -135,7 +135,10 @@ class GalleryController extends Controller
 
     public function edit($id)
     {
-        $row = Gallery::find($id);
+        $row = Gallery::where('gallery_id',$id)
+            ->select('*',
+                DB::raw('DATE_FORMAT(gallery.gallery_date,"%d.%m.%Y %H:%i") as gallery_date'))
+            ->first();
 
         $images = \App\Models\Image::where('gallery_id',$id)->get();
 

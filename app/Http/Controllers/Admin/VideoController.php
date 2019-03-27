@@ -124,7 +124,10 @@ class VideoController extends Controller
 
     public function edit($id)
     {
-        $row = Video::find($id);
+        $row = Video::where('video_id',$id)
+            ->select('*',
+                DB::raw('DATE_FORMAT(video.video_date,"%d.%m.%Y %H:%i") as video_date'))
+            ->first();
 
         return  view('admin.video.video-edit', [
             'title' => 'Редактировать данные видео',

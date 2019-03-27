@@ -58,6 +58,9 @@ Route::group([
     Route::post('slider/is_show', 'SliderController@changeIsShow');
     Route::resource('slider', 'SliderController');
 
+    Route::post('review/is_show', 'ReviewController@changeIsShow');
+    Route::resource('review', 'ReviewController');
+
     Route::get('order/seminar', 'OrderController@seminar');
     Route::post('order/is_show', 'OrderController@changeIsShow');
     Route::resource('order', 'OrderController');
@@ -123,6 +126,9 @@ Route::group([
 
     Route::get('gallery', 'GalleryController@showGalleryList');
     Route::get('gallery/{url}', 'GalleryController@showGalleryById');
+
+    Route::get('review', 'ReviewController@showReviewList');
+    Route::get('review/{url}', 'ReviewController@showReviewById');
 
     Route::get('{url}', 'PageController@showPage');
 

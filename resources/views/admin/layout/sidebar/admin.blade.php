@@ -51,6 +51,11 @@
           <i class="mdi mdi-bank"></i><span class="hide-menu">Семинары</span>
         </a>
       </li>
+      <li @if(isset($menu) && $menu == 'review') class="active"  @endif>
+        <a class="waves-effect waves-dark" href="/admin/review" aria-expanded="false">
+          <i class="mdi mdi-bank"></i><span class="hide-menu">Обзоры</span>
+        </a>
+      </li>
       <li @if(isset($menu) && $menu == 'slider') class="active"  @endif>
         <a class="waves-effect waves-dark" href="/admin/slider" aria-expanded="false">
           <i class="mdi mdi-bank"></i><span class="hide-menu">Слайдер</span>
