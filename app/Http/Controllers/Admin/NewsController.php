@@ -123,7 +123,10 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        $row = News::find($id);
+        $row = News::where('news_id',$id)
+            ->select('*',
+                DB::raw('DATE_FORMAT(news.news_date,"%d.%m.%Y %H:%i") as news_date'))
+            ->first();
 
         return  view('admin.news.news-edit', [
             'title' => 'Редактировать данные новости',

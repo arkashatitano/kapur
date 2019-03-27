@@ -123,7 +123,10 @@ class SeminarController extends Controller
 
     public function edit($id)
     {
-        $row = Seminar::find($id);
+        $row = Seminar::where('seminar_id',$id)
+            ->select('*',
+                DB::raw('DATE_FORMAT(seminar.seminar_date,"%d.%m.%Y %H:%i") as seminar_date'))
+            ->first();
 
         return  view('admin.seminar.seminar-edit', [
             'title' => 'Редактировать данные семинара',
