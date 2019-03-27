@@ -125,5 +125,5 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae235148e8f7f04"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c98a5a402aee812"></script>
 @endsection

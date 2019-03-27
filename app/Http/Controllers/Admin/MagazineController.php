@@ -128,7 +128,10 @@ class MagazineController extends Controller
 
     public function edit($id)
     {
-        $row = Magazine::find($id);
+        $row = Magazine::where('magazine_id',$id)
+            ->select('*',
+                DB::raw('DATE_FORMAT(magazine.magazine_date,"%d.%m.%Y %H:%i") as magazine_date'))
+            ->first();
 
         return  view('admin.magazine.magazine-edit', [
             'title' => 'Редактировать данные семинара',

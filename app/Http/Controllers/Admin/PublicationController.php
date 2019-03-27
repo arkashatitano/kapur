@@ -129,7 +129,10 @@ class PublicationController extends Controller
 
     public function edit($id)
     {
-        $row = Publication::find($id);
+        $row = Publication::where('publication_id',$id)
+            ->select('*',
+                DB::raw('DATE_FORMAT(publication.publication_date,"%d.%m.%Y %H:%i") as publication_date'))
+            ->first();
 
         return  view('admin.publication.publication-edit', [
             'title' => 'Редактировать данные статьи',
