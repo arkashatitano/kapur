@@ -71,6 +71,11 @@
           <i class="mdi mdi-bank"></i><span class="hide-menu">Галерея</span>
         </a>
       </li>
+      <li @if(isset($menu) && $menu == 'project') class="active"  @endif>
+        <a class="waves-effect waves-dark" href="/admin/project" aria-expanded="false">
+          <i class="mdi mdi-bank"></i><span class="hide-menu">Проекты</span>
+        </a>
+      </li>
       <li @if(isset($menu) && $menu == 'document') class="active"  @endif>
         <a class="waves-effect waves-dark" href="/admin/document" aria-expanded="false">
           <i class="mdi mdi-bank"></i><span class="hide-menu">Документы</span>

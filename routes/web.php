@@ -61,6 +61,9 @@ Route::group([
     Route::post('review/is_show', 'ReviewController@changeIsShow');
     Route::resource('review', 'ReviewController');
 
+    Route::post('project/is_show', 'ProjectController@changeIsShow');
+    Route::resource('project', 'ProjectController');
+
     Route::get('order/seminar', 'OrderController@seminar');
     Route::post('order/is_show', 'OrderController@changeIsShow');
     Route::resource('order', 'OrderController');
@@ -129,6 +132,9 @@ Route::group([
 
     Route::get('review', 'ReviewController@showReviewList');
     Route::get('review/{url}', 'ReviewController@showReviewById');
+
+    Route::get('project', 'ProjectController@showProjectList');
+    Route::get('project/{url}', 'ProjectController@showProjectById');
 
     Route::get('{url}', 'PageController@showPage');
 
