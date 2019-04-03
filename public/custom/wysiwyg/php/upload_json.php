@@ -1,4 +1,4 @@
-<?php
+x<?php
 /**
  * KindEditor PHP
  *
@@ -21,7 +21,7 @@ $ext_arr = array(
 	'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
 	'flash' => array('swf', 'flv'),
 	'media' => array('swf', 'flv', 'mp3', 'wav', 'wma', 'wmv', 'mid', 'avi', 'mpg', 'asf', 'rm', 'rmvb'),
-	'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
+	'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2','pdf'),
 );
 //最大文件大小
 $max_size = 1000000;
@@ -129,7 +129,7 @@ if (empty($_FILES) === false) {
 	$json = new Services_JSON();
 	$host = "http://" . $_SERVER['SERVER_NAME'];
 	
-	echo $json->encode(array('error' => 0, 'url' => $host.$file_url));
+	echo $json->encode(array('error' => 0, 'url' => $file_url));
 	exit;
 }
 
