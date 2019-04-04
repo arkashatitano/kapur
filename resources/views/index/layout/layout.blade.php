@@ -20,8 +20,8 @@
 
 
 <script src="/custom/js/jquery.js"></script>
-<script src="/static/js/main.min.js"></script>
-<script src="/static/js/separate-js/scripts.js"></script>
+<script src="/static/js/main.min.js?v=1"></script>
+<script src="/static/js/separate-js/scripts.js?v=1"></script>
 <script src="/custom/js/custom.js?v=18"></script>
 
 
