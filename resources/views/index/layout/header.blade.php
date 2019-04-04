@@ -50,7 +50,6 @@ $menu_list = \App\Models\Menu::where('is_show',1)
             @foreach($menu_list as $key => $item)
 
                 <div class="main-menu__col">
-                    <div class="main-menu__title">Об Ассоциации</div>
 
                     @if($item->child_count == 0)
 
