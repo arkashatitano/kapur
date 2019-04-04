@@ -4,11 +4,28 @@ $(function() {
 
     /*
     |--------------------------------------------------------------------------
+    | Mobile menu
+    |--------------------------------------------------------------------------
+    */
+
+    $('.burger').click(function() {
+        $(this).toggleClass('-opened');
+        $('.main-menu').toggleClass('-opened');
+
+        if ($(this).hasClass('-opened')) {
+            $('body').css({"overflow": "hidden"});
+        } else {
+            $('body').css({"overflow": ""});
+        }
+    });
+
+    /*
+    |--------------------------------------------------------------------------
     | Responsive iframe inside bootstrap modal
     |--------------------------------------------------------------------------
     */
 
-    /*let iframeModal = document.getElementById('iframe-modal');
+    let iframeModal = document.getElementById('iframe-modal');
     let iframeModalItem = iframeModal.querySelector('.jsBmEmbedItem');
 
     document.addEventListener('click', function(e){
@@ -28,7 +45,7 @@ $(function() {
                 iframeModalItem.setAttribute("src", "");
             });
         }
-    });*/
+    });
 
     /*
     |--------------------------------------------------------------------------
@@ -233,16 +250,5 @@ $(function() {
 
     objectFitImages();
     // if you use jQuery, the code is: $(function () { objectFitImages() });
-
-    /*
-    |--------------------------------------------------------------------------
-    | Main Menu
-    |--------------------------------------------------------------------------
-    */
-
-    $('#collapse-menu').on('click', function(e) {
-        $('body').toggleClass('opened-menu');
-        $('.main-menu').toggleClass('clicked');
-    });
 
 });

@@ -11,8 +11,8 @@
     @yield('meta-tags')
 
     <!-- Stylesheet -->
-    <link href="/static/css/main.min.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/separate-css/custom.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/main.min.css?v=1" rel="stylesheet" type="text/css">
+    <link href="/static/css/separate-css/custom.css?v=1" rel="stylesheet" type="text/css">
 
 
 
@@ -31,5 +31,5 @@
     <meta content="no" http-equiv="imagetoolbar">
     <![endif]-->
 
-    <link rel="stylesheet" href="/custom/css/main.css?v=7">
+    <link rel="stylesheet" href="/custom/css/main.css?v=8">
 </head>
