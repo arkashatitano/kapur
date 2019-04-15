@@ -47,6 +47,20 @@
                         <div class="row" data-gutter="50">
                             <div class="col-lg-12">
                                 {!! $menu['menu_text_'.$lang] !!}
+
+                                @if(isset($document_list))
+
+                                    <div class="article__info">
+                                        <p>Прикрепленные файлы</p>
+
+                                        @foreach($document_list as $item)
+                                            <a target="_blank" href="{{$project->file_url}}">{{$item['file_name_ru']}}</a>
+                                        @endforeach
+
+                                    </div>
+
+                                @endif
+
                             </div>
                         </div>
                     </div>

@@ -66,9 +66,12 @@ class PageController extends Controller
             }
         }
 
+        $document_list = \App\Models\File::where('is_show',1)->orderBy('file_id','asc')->where('menu_id',$menu->menu_id)->get();
+
         return  view('index.page.page-detail',
             [
                 'row' => $request,
+                'document_list' => $document_list,
                 'menu' => $menu
             ]);
     }
