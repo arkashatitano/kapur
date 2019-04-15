@@ -52,7 +52,6 @@
                             <th>Название </th>
                             <th>Стоимость </th>
                             <th>Стоимость с доставкой</th>
-                            <th>Ссылка на файл </th>
                             <th>Дата</th>
                             <th style="width: 15px"></th>
                             <th style="width: 15px"></th>
@@ -75,7 +74,6 @@
                                      <input type="hidden" value="@if(!isset($request->active)){{'1'}}@else{{$request->active}}@endif" name="active"/>
                                 </form>
                             </td>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -106,13 +104,6 @@
                                 </td>
                                 <td>
                                     {{ $val['magazine_price_delivery']}}тг
-                                </td>
-                                <td>
-                                    @if($val->magazine_pdf != '')
-                                        <a target="_blank" href="{{$val->magazine_pdf}}">
-                                            Скачать файл
-                                        </a>
-                                    @endif
                                 </td>
                                 <td>
                                     {{ $val['date']}}
