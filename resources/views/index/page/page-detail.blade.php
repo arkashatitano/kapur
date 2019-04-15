@@ -54,8 +54,8 @@
                                         <p>Прикрепленные файлы</p>
 
                                         @foreach($document_list as $key => $item)
-                                            <div>
-                                                {{$key}}. <a target="_blank" href="{{$item->file_url}}">{{$item['file_name_ru']}}</a>
+                                            <div class="mb-10">
+                                                {{$key+1}}. <a target="_blank" href="{{$item->file_url}}">{{$item['file_name_ru']}}</a>
                                             </div>
 
                                         @endforeach
