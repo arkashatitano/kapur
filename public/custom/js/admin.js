@@ -526,6 +526,11 @@ function showDocumentUpload(){
     $('#file_upload_content').fadeIn(0);
 }
 
+function showImageUpload(){
+    $('#image_upload_content').fadeIn(0);
+    $('#file_upload_content').fadeOut(0);
+}
+
 function deleteMultipleFile(ob){
     if(confirm('Действительно хотите удалить файл?')){
         $(ob).closest('.multiple-file').remove();

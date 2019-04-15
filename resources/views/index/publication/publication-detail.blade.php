@@ -55,7 +55,26 @@
                         <div class="row">
                             <div class="col-lg-8">
 
+                                @if(isset($document_list) && count($document_list) > 0)
 
+                                    <div class="article__info">
+                                        <p>Прикрепленные файлы</p>
+
+                                        @foreach($document_list as $key => $item)
+
+                                            @if($publication->publication_price == 0 || ($publication->publication_price > 0 && $item->is_show == 1))
+
+                                            <div class="mb-10">
+                                                {{$key+1}}. <a target="_blank" href="{{$item->file_url}}">{{$item['file_name_ru']}}</a>
+                                            </div>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </div>
+
+                                @endif
 
                                 @if($publication->publication_price == 0)
 

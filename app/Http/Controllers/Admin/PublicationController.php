@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Helpers;
 use App\Models\Actions;
+use App\Models\File;
 use App\Models\Publication;
 use App\Models\Category;
 use App\Models\Users;
@@ -115,7 +116,19 @@ class PublicationController extends Controller
         $publication->publication_url_kz = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_kz);
         $publication->publication_url_en = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_en);
         $publication->save();
-        
+
+        File::where('publication_id',$publication->publication_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key];
+                $file->publication_id = $publication->publication_id;
+                $file->save();
+            }
+        }
+
         $action = new Actions();
         $action->action_code_id = 2;
         $action->action_comment = 'publication';
@@ -134,9 +147,12 @@ class PublicationController extends Controller
                 DB::raw('DATE_FORMAT(publication.publication_date,"%d.%m.%Y %H:%i") as publication_date'))
             ->first();
 
+        $document_list = File::where('publication_id',$id)->orderBy('file_id','asc')->get();
+
         return  view('admin.publication.publication-edit', [
             'title' => 'Редактировать данные статьи',
-            'row' => $row
+            'row' => $row,
+            'document_list' => $document_list
         ]);
     }
 
@@ -153,11 +169,13 @@ class PublicationController extends Controller
         if ($validator->fails()) {
             $messages = $validator->errors();
             $error = $messages->all();
-            
-            
+
+            $document_list = File::where('publication_id',$id)->orderBy('file_id','asc')->get();
+
             return  view('admin.publication.publication-edit', [
                 'title' => 'Редактировать данные статьи',
                 'row' => (object) $request->all(),
+                'document_list' => $document_list,
                 'error' => $error[0]
             ]);
         }
@@ -193,7 +211,19 @@ class PublicationController extends Controller
         $publication->publication_url_kz = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_kz);
         $publication->publication_url_en = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_en);
         $publication->save();
-        
+
+        File::where('publication_id',$publication->publication_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key];
+                $file->publication_id = $publication->publication_id;
+                $file->save();
+            }
+        }
+
         $action = new Actions();
         $action->action_code_id = 3;
         $action->action_comment = 'publication';

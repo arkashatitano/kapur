@@ -35,9 +35,10 @@
                                         <div class="box-body">
 
                                             <ul class="nav nav-tabs" role="tablist">
-                                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#ru" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Русский</span></a> </li>
-                                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#kz" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Казахский</span></a> </li>
-                                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#en" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Английский</span></a> </li>
+                                                <li class="nav-item"> <a onclick="showImageUpload()" class="nav-link active" data-toggle="tab" href="#ru" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Русский</span></a> </li>
+                                                <li class="nav-item"> <a onclick="showImageUpload()" class="nav-link" data-toggle="tab" href="#kz" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Казахский</span></a> </li>
+                                                <li class="nav-item"> <a onclick="showImageUpload()" class="nav-link" data-toggle="tab" href="#en" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Английский</span></a> </li>
+                                                <li class="nav-item"> <a onclick="showDocumentUpload()" class="nav-link" data-toggle="tab" href="#pdf" id="pdf_tab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Файлы</span></a> </li>
                                             </ul>
 
                                             <div class="tab-content tabcontent-border">
@@ -113,6 +114,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="tab-pane" id="pdf" role="tabpanel">
+                                                    <div class="row" id="photo_content" style="min-height: 300px; padding: 20px">
+                                                        @include('admin.index.document-loop')
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label>Рубрика</label>
@@ -142,7 +148,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="card">
                     <div class="card-block">
-                        <div class="box box-primary" style="padding: 30px; text-align: center">
+                        <div class="box box-primary" style="padding: 30px; text-align: center" id="image_upload_content">
                             <div style="padding: 20px; border: 1px solid #c2e2f0">
                                 <img class="image-src" src="{{ $row->publication_image }}" style="width: 100%; "/>
                             </div>
@@ -150,6 +156,17 @@
                             <form id="image_form" enctype="multipart/form-data" method="post" class="image-form">
                                 <i class="fa fa-plus"></i>
                                 <input id="avatar-file" type="file" onchange="uploadImage()" name="image"/>
+                            </form>
+                        </div>
+                        <div class="box box-primary" style="padding: 30px; text-align: center" id="file_upload_content">
+                            <p>Загрузите файл</p>
+                            <div style="padding: 20px; border: 1px solid #c2e2f0">
+                                <img class="image-src" src="/file.png" style="width: 100%; "/>
+                            </div>
+                            <div style="background-color: #c2e2f0;height: 40px;margin: 0 auto;width: 2px;"></div>
+                            <form id="image_multiple_form_document" enctype="multipart/form-data" method="post" class="image-form">
+                                <i class="fa fa-plus"></i>
+                                <input id="avatar-file" type="file" onchange="uploadMultipleDocument('index')" name="image"/>
                             </form>
                         </div>
                     </div>
