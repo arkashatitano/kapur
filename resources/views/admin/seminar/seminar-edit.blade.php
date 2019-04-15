@@ -113,6 +113,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="tab-pane" id="pdf" role="tabpanel">
+                                                    <div class="row" id="photo_content" style="min-height: 300px; padding: 20px">
+                                                        @include('admin.index.document-loop')
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label>Дата</label>
@@ -129,7 +134,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="card">
                     <div class="card-block">
-                        <div class="box box-primary" style="padding: 30px; text-align: center">
+                        <div class="box box-primary" style="padding: 30px; text-align: center" id="image_upload_content">
                             <div style="padding: 20px; border: 1px solid #c2e2f0">
                                 <img class="image-src" src="{{ $row->seminar_image }}" style="width: 100%; "/>
                             </div>
@@ -137,6 +142,17 @@
                             <form id="image_form" enctype="multipart/form-data" method="post" class="image-form">
                                 <i class="fa fa-plus"></i>
                                 <input id="avatar-file" type="file" onchange="uploadImage()" name="image"/>
+                            </form>
+                        </div>
+                        <div class="box box-primary" style="padding: 30px; text-align: center" id="file_upload_content">
+                            <p>Загрузите файл</p>
+                            <div style="padding: 20px; border: 1px solid #c2e2f0">
+                                <img class="image-src" src="/file.png" style="width: 100%; "/>
+                            </div>
+                            <div style="background-color: #c2e2f0;height: 40px;margin: 0 auto;width: 2px;"></div>
+                            <form id="image_multiple_form_document" enctype="multipart/form-data" method="post" class="image-form">
+                                <i class="fa fa-plus"></i>
+                                <input id="avatar-file" type="file" onchange="uploadMultipleDocument('index')" name="image"/>
                             </form>
                         </div>
                     </div>
