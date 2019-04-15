@@ -93,7 +93,7 @@ class PublicationController extends Controller
             ->take(3)
             ->get();
 
-        $document_list = \App\Models\File::orderBy('file_id','asc')->where('menu_id',$menu->menu_id)->get();
+        $document_list = \App\Models\File::orderBy('file_id','asc')->where('publication_id',$publication->publication_id)->get();
 
         return view('index.publication.publication-detail',
             [
