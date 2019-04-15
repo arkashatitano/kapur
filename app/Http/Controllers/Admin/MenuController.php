@@ -120,9 +120,9 @@ class MenuController extends Controller
         if(isset($request['file_url_input'])){
             foreach($request['file_url_input'] as $key => $item){
                 $file = new File();
-                $file->file_name_ru = $request[$key]['file_multiple_name_ru'];
-                $file->file_url = $request[$key]['file_url_input'];
-                $file->is_show = $request[$key]['file_multiple_is_show'];
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key]?:1;
                 $file->menu_id = $menu->menu_id;
                 $file->save();
             }
@@ -208,9 +208,9 @@ class MenuController extends Controller
         if(isset($request['file_url_input'])){
             foreach($request['file_url_input'] as $key => $item){
                 $file = new File();
-                $file->file_name_ru = $request[$key]['file_multiple_name_ru'];
-                $file->file_url = $request[$key]['file_url_input'];
-                $file->is_show = $request[$key]['file_multiple_is_show']?:1;
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key]?:1;
                 $file->menu_id = $menu->menu_id;
                 $file->save();
             }
