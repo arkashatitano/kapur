@@ -67,7 +67,7 @@ class IndexController extends Controller
         $document = array();
         $document[0]['file_url'] = $request->file_url;
         $document[0]['file_size'] = $request->file_size;
-        $document[0]['file_text'] = 'Загрузите файл';
+        $document[0]['file_name_ru'] = 'Загрузите файл';
         $document[0]['is_show'] = 1;
 
         return  view('admin.'.$request->model.'.document-loop',[
