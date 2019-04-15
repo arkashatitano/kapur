@@ -56,7 +56,7 @@ class ExpositionController extends Controller
         $row->exposition_date = date('d.m.Y H:i');
 
         return  view('admin.exposition.exposition-edit', [
-            'title' => 'Добавить проект',
+            'title' => 'Добавить выставку',
             'row' => $row
         ]);
     }
@@ -71,7 +71,7 @@ class ExpositionController extends Controller
             $messages = $validator->errors();
             $error = $messages->all();
             return  view('admin.exposition.exposition-edit', [
-                'title' => 'Добавить проект',
+                'title' => 'Добавить выставку',
                 'row' => (object) $request->all(),
                 'error' => $error[0]
             ]);
@@ -111,7 +111,7 @@ class ExpositionController extends Controller
         $action = new Actions();
         $action->action_code_id = 2;
         $action->action_comment = 'exposition';
-        $action->action_text_ru = 'добавил(а) проект "' .$exposition->exposition_name_ru .'"';
+        $action->action_text_ru = 'добавил(а) выставку "' .$exposition->exposition_name_ru .'"';
         $action->user_id = Auth::user()->user_id;
         $action->universal_id = $exposition->exposition_id;
         $action->save();
@@ -127,7 +127,7 @@ class ExpositionController extends Controller
             ->first();
 
         return  view('admin.exposition.exposition-edit', [
-            'title' => 'Редактировать данные проекта',
+            'title' => 'Редактировать данные выставки',
             'row' => $row
         ]);
     }
@@ -148,7 +148,7 @@ class ExpositionController extends Controller
             
             
             return  view('admin.exposition.exposition-edit', [
-                'title' => 'Редактировать данные проекта',
+                'title' => 'Редактировать данные выставки',
                 'row' => (object) $request->all(),
                 'error' => $error[0]
             ]);
@@ -185,7 +185,7 @@ class ExpositionController extends Controller
         $action = new Actions();
         $action->action_code_id = 3;
         $action->action_comment = 'exposition';
-        $action->action_text_ru = 'редактировал(а) данные проекта "' .$exposition->exposition_name_ru .'"';
+        $action->action_text_ru = 'редактировал(а) данные выставки "' .$exposition->exposition_name_ru .'"';
         $action->user_id = Auth::user()->user_id;
         $action->universal_id = $exposition->exposition_id;
         $action->save();
@@ -204,7 +204,7 @@ class ExpositionController extends Controller
         $action = new Actions();
         $action->action_code_id = 1;
         $action->action_comment = 'exposition';
-        $action->action_text_ru = 'удалил(а) проект "' .$exposition->exposition_name_ru .'"';
+        $action->action_text_ru = 'удалил(а) выставку "' .$exposition->exposition_name_ru .'"';
         $action->user_id = Auth::user()->user_id;
         $action->universal_id = $id;
         $action->save();
@@ -220,11 +220,11 @@ class ExpositionController extends Controller
         $action->action_comment = 'exposition';
 
         if($request->is_show == 1){
-            $action->action_text_ru = 'отметил(а) как активное - проект "' .$exposition->exposition_name_ru .'"';
+            $action->action_text_ru = 'отметил(а) как активное - выставка "' .$exposition->exposition_name_ru .'"';
             $action->action_code_id = 5;
         }
         else {
-            $action->action_text_ru = 'отметил(а) как неактивное - проект "' .$exposition->exposition_name_ru .'"';
+            $action->action_text_ru = 'отметил(а) как неактивное - выставка "' .$exposition->exposition_name_ru .'"';
             $action->action_code_id = 4;
         }
 

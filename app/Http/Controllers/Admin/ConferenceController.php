@@ -56,7 +56,7 @@ class ConferenceController extends Controller
         $row->conference_date = date('d.m.Y H:i');
 
         return  view('admin.conference.conference-edit', [
-            'title' => 'Добавить проект',
+            'title' => 'Добавить конференцию',
             'row' => $row
         ]);
     }
@@ -71,7 +71,7 @@ class ConferenceController extends Controller
             $messages = $validator->errors();
             $error = $messages->all();
             return  view('admin.conference.conference-edit', [
-                'title' => 'Добавить проект',
+                'title' => 'Добавить конференцию',
                 'row' => (object) $request->all(),
                 'error' => $error[0]
             ]);
@@ -111,7 +111,7 @@ class ConferenceController extends Controller
         $action = new Actions();
         $action->action_code_id = 2;
         $action->action_comment = 'conference';
-        $action->action_text_ru = 'добавил(а) проект "' .$conference->conference_name_ru .'"';
+        $action->action_text_ru = 'добавил(а) конференцию "' .$conference->conference_name_ru .'"';
         $action->user_id = Auth::user()->user_id;
         $action->universal_id = $conference->conference_id;
         $action->save();
@@ -127,7 +127,7 @@ class ConferenceController extends Controller
             ->first();
 
         return  view('admin.conference.conference-edit', [
-            'title' => 'Редактировать данные проекта',
+            'title' => 'Редактировать данные конференции',
             'row' => $row
         ]);
     }
@@ -148,7 +148,7 @@ class ConferenceController extends Controller
             
             
             return  view('admin.conference.conference-edit', [
-                'title' => 'Редактировать данные проекта',
+                'title' => 'Редактировать данные конференции',
                 'row' => (object) $request->all(),
                 'error' => $error[0]
             ]);
@@ -185,7 +185,7 @@ class ConferenceController extends Controller
         $action = new Actions();
         $action->action_code_id = 3;
         $action->action_comment = 'conference';
-        $action->action_text_ru = 'редактировал(а) данные проекта "' .$conference->conference_name_ru .'"';
+        $action->action_text_ru = 'редактировал(а) данные конференции "' .$conference->conference_name_ru .'"';
         $action->user_id = Auth::user()->user_id;
         $action->universal_id = $conference->conference_id;
         $action->save();
@@ -204,7 +204,7 @@ class ConferenceController extends Controller
         $action = new Actions();
         $action->action_code_id = 1;
         $action->action_comment = 'conference';
-        $action->action_text_ru = 'удалил(а) проект "' .$conference->conference_name_ru .'"';
+        $action->action_text_ru = 'удалил(а) конференцию "' .$conference->conference_name_ru .'"';
         $action->user_id = Auth::user()->user_id;
         $action->universal_id = $id;
         $action->save();
@@ -220,11 +220,11 @@ class ConferenceController extends Controller
         $action->action_comment = 'conference';
 
         if($request->is_show == 1){
-            $action->action_text_ru = 'отметил(а) как активное - проект "' .$conference->conference_name_ru .'"';
+            $action->action_text_ru = 'отметил(а) как активное - конференция "' .$conference->conference_name_ru .'"';
             $action->action_code_id = 5;
         }
         else {
-            $action->action_text_ru = 'отметил(а) как неактивное - проект "' .$conference->conference_name_ru .'"';
+            $action->action_text_ru = 'отметил(а) как неактивное - конференция "' .$conference->conference_name_ru .'"';
             $action->action_code_id = 4;
         }
 
