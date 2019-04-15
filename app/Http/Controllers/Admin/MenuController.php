@@ -143,9 +143,12 @@ class MenuController extends Controller
     {
         $row = Menu::find($id);
 
+        $document_list = File::where('menu_id',$id)->orderBy('file_id','asc')->get();
+
         return  view('admin.menu.menu-edit', [
             'title' => 'Редактировать данные меню',
-            'row' => $row
+            'row' => $row,
+            'document_list' => $document_list
         ]);
     }
 
@@ -162,10 +165,14 @@ class MenuController extends Controller
         if ($validator->fails()) {
             $messages = $validator->errors();
             $error = $messages->all();
+
+            $document_list = File::where('menu_id',$id)->orderBy('file_id','asc')->get();
+
             return  view('admin.menu.menu-edit', [
                 'title' => 'Редактировать данные меню',
                 'row' => (object) $request->all(),
-                'error' => $error[0]
+                'error' => $error[0],
+                'document_list' => $document_list
             ]);
         }
 
