@@ -138,7 +138,7 @@
 <script type="text/javascript" src="/custom/wysiwyg/ru_Ru.js"></script>
 <script type="text/javascript" src="/custom/js/jquery.gritter.js"></script>
 
-<script src="/custom/js/admin.js?v=11"></script>
+<script src="/custom/js/admin.js?v=13"></script>
 
 @yield('js')
 

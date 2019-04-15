@@ -62,4 +62,16 @@ class IndexController extends Controller
         $result['contact_count'] =  Contact::where('is_show','=','0')->count();
         return response()->json($result);
     }
+
+    public function getDocumentList(Request $request){
+        $document = array();
+        $document[0]['file_url'] = $request->file_url;
+        $document[0]['file_size'] = $request->file_size;
+        $document[0]['file_text'] = 'Загрузите файл';
+        $document[0]['is_show'] = 1;
+
+        return  view('admin.'.$request->model.'.document-loop',[
+            'document_list' => $document
+        ]);
+    }
 }

@@ -460,3 +460,74 @@ function showCropImage(){
         }
     });
 }
+
+function uploadMultipleDocument(ob){
+    g_model = ob;
+    $('.ajax-loader').css('display','block');
+    $("#image_multiple_form_document").submit();
+}
+
+var g_model = '';
+var g_file_url = '';
+var g_file_size = '';
+var g_file_type = '';
+
+$("#image_multiple_form_document").submit(function(event) {
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+        url:'/image/upload/file',
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: formData,
+        async: true,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            $('.ajax-loader').css('display','none');
+            if(data.success == 0){
+                showError(data.error);
+                return;
+            }
+            g_file_size = data.file_size;
+            g_file_url = data.file_url;
+
+            $('.nav-tabs li').removeClass('active');
+            $('.nav-link').removeClass('active');
+            $('.tab-pane').removeClass('active');
+            $('#pdf_tab').addClass('active');
+            $('#pdf').addClass('active');
+            $('.photo-tab').closest('li').addClass('active');
+            getMultipleDocumentList();
+        }
+    });
+});
+
+function getMultipleDocumentList(){
+    $.ajax({
+        type: 'GET',
+        url: "/admin/file",
+        data:{
+            file_url: g_file_url,
+            model: g_model,
+            file_size: g_file_size
+        },
+        success: function(data){
+            $('#photo_content').append(data);
+        }
+    });
+}
+
+function showDocumentUpload(){
+    $('#image_upload_content').fadeOut(0);
+    $('#file_upload_content').fadeIn(0);
+}
+
+function deleteMultipleFile(ob){
+    if(confirm('Действительно хотите удалить файл?')){
+        $(ob).closest('.multiple-file').remove();
+    }
+}

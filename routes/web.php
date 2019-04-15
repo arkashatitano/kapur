@@ -8,8 +8,10 @@ Route::group([
     'middleware' => 'web'
 ], function() {
 
-    Route::any('/login', 'AuthController@login');
-    Route::get('/logout', 'AuthController@logout');
+    Route::any('login', 'AuthController@login');
+    Route::get('logout', 'AuthController@logout');
+
+    Route::get('file', 'IndexController@getDocumentList');
 
     Route::post('conference/is_show', 'ConferenceController@changeIsShow');
     Route::get('conference/image', 'ConferenceController@getDocumentList');

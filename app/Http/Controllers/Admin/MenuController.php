@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Helpers;
 use App\Models\Actions;
+use App\Models\File;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -115,6 +116,17 @@ class MenuController extends Controller
         $menu->sort_num = $request->sort_num?$request->sort_num:100;
         $menu->save();
 
+        File::where('menu_id',$menu->menu_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request[$key]['file_multiple_name_ru'];
+                $file->file_url = $request[$key]['file_url_input'];
+                $file->is_show = $request[$key]['file_multiple_is_show'];
+                $file->menu_id = $menu->menu_id;
+                $file->save();
+            }
+        }
 
         $action = new Actions();
         $action->action_code_id = 2;
@@ -191,6 +203,18 @@ class MenuController extends Controller
         $menu->is_show_footer = $request->is_show_footer;
         $menu->sort_num = $request->sort_num?$request->sort_num:100;
         $menu->save();
+
+        File::where('menu_id',$menu->menu_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request[$key]['file_multiple_name_ru'];
+                $file->file_url = $request[$key]['file_url_input'];
+                $file->is_show = $request[$key]['file_multiple_is_show'];
+                $file->menu_id = $menu->menu_id;
+                $file->save();
+            }
+        }
 
         $action = new Actions();
         $action->action_code_id = 3;
