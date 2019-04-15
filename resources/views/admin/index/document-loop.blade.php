@@ -4,7 +4,7 @@
 
         <div class="col-md-12 multiple-file">
             <div class="row" style="border: 2px solid #1E88E5;padding: 10px; margin: 5px">
-                <input type="hidden" name="file_url_input" value="{{$item['file_url']}}" class="file_url_input"/>
+                <input type="hidden" name="file_url_input" value="{{$item['file_url']}}"/>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="control-label">Фото</label>

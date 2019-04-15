@@ -206,6 +206,7 @@ class MenuController extends Controller
 
         File::where('menu_id',$menu->menu_id)->delete();
         if(isset($request['file_url_input'])){
+            dd($request['file_url_input']);
             foreach($request['file_url_input'] as $key => $item){
                 $file = new File();
                 $file->file_name_ru = $request[$key]['file_multiple_name_ru'];
