@@ -19,7 +19,7 @@
                     </a>
                     <div class="form-group has-danger">
                         <label class="control-label">Название файла</label>
-                        <textarea class="form-control form-control-danger" name="file_multiple_name_ru[]">{{$item['file_text']}}</textarea>
+                        <textarea class="form-control form-control-danger" name="file_multiple_name_ru[]">{{$item['file_name_ru']}}</textarea>
                         <label class="control-label" style="margin-top: 23px">Отображать</label>
                         <select class="form-control" name="file_multiple_is_show[]">
                             <option value="1" @if($item['is_show'] == 1) selected="selected" @endif>Да</option>
