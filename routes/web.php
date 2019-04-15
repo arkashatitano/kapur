@@ -11,6 +11,14 @@ Route::group([
     Route::any('/login', 'AuthController@login');
     Route::get('/logout', 'AuthController@logout');
 
+    Route::post('conference/is_show', 'ConferenceController@changeIsShow');
+    Route::get('conference/image', 'ConferenceController@getDocumentList');
+    Route::resource('conference', 'ConferenceController');
+
+    Route::post('exposition/is_show', 'ExpositionController@changeIsShow');
+    Route::get('exposition/image', 'ExpositionController@getDocumentList');
+    Route::resource('exposition', 'ExpositionController');
+
     Route::post('partner/is_show', 'PartnerController@changeIsShow');
     Route::resource('partner', 'PartnerController');
 
@@ -135,6 +143,12 @@ Route::group([
 
     Route::get('project', 'ProjectController@showProjectList');
     Route::get('project/{url}', 'ProjectController@showProjectById');
+
+    Route::get('conference', 'ConferenceController@showConferenceList');
+    Route::get('conference/{url}', 'ConferenceController@showConferenceById');
+
+    Route::get('exposition', 'ExpositionController@showExpositionList');
+    Route::get('exposition/{url}', 'ExpositionController@showExpositionById');
 
     Route::get('{url}', 'PageController@showPage');
 

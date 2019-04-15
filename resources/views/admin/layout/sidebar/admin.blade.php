@@ -101,7 +101,16 @@
           <i class="mdi mdi-bank"></i><span class="hide-menu">Члены ассоциации</span>
         </a>
       </li>
-
+      <li @if(isset($menu) && $menu == 'news') class="active"  @endif>
+        <a class="waves-effect waves-dark" href="/admin/exposition" aria-expanded="false">
+          <i class="mdi mdi-bank"></i><span class="hide-menu">Выставка</span>
+        </a>
+      </li>
+      <li @if(isset($menu) && $menu == 'news') class="active"  @endif>
+        <a class="waves-effect waves-dark" href="/admin/conference" aria-expanded="false">
+          <i class="mdi mdi-bank"></i><span class="hide-menu">Конференция</span>
+        </a>
+      </li>
       <li @if(isset($menu) && $menu == 'news') class="active"  @endif>
         <a class="waves-effect waves-dark" href="/admin/news" aria-expanded="false">
           <i class="mdi mdi-bank"></i><span class="hide-menu">Новости</span>
