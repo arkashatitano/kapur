@@ -6,10 +6,10 @@
         <div class="row page-titles">
             <div class="col-md-8 col-8 align-self-center">
                 <h3 class="text-themecolor m-b-0 m-t-0 d-inline-block menu-tab">
-                    <a href="/admin/exposition" class="@if(!isset($request->active) || $request->active == '1') active-page @endif">Опубликованные проекты</a>
+                    <a href="/admin/exposition" class="@if(!isset($request->active) || $request->active == '1') active-page @endif">Опубликованные выставки</a>
                 </h3>
                 <h3 class="text-themecolor m-b-0 m-t-0 d-inline-block menu-tab second-tab" >
-                    <a href="/admin/exposition?active=0" class="@if($request->active == '0') active-page @endif">Неопубликованные проекты</a>
+                    <a href="/admin/exposition?active=0" class="@if($request->active == '0') active-page @endif">Неопубликованные выставки</a>
                 </h3>
                 <div class="clear-float"></div>
             </div>
