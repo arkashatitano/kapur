@@ -45,7 +45,7 @@
                     <header class="article__header -seminar">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat($publication->publication_date)}}</div>
                         <h1 class="article__title">{!! $publication['publication_name_'.$lang] !!}</h1>
-                        <a href="#" class="button -underline_white article__button">Регистрация</a>
+                        <a href="#" class="button -underline_white article__button">Купить статью</a>
                         <div class="article__img">
                             <img src="{{$publication['publication_image']}}" alt="">
                         </div>
