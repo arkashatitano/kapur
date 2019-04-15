@@ -23,7 +23,7 @@
                         <label class="control-label" style="margin-top: 23px">Отображать</label>
                         <select class="form-control" name="file_multiple_is_show[]">
                             <option value="1" @if($item['is_show'] == 1) selected="selected" @endif>Да</option>
-                            <option value="0 @if($item['is_show'] == 0) selected="selected" @endif>Нет</option>
+                            <option value="0" @if($item['is_show'] == 0) selected="selected" @endif>Нет</option>
                         </select>
                     </div>
                 </div>
