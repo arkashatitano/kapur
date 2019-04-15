@@ -48,7 +48,7 @@
                             <div class="col-lg-12">
                                 {!! $menu['menu_text_'.$lang] !!}
 
-                                @if(isset($document_list))
+                                @if(isset($document_list) && count($document_list) > 0)
 
                                     <div class="article__info">
                                         <p>Прикрепленные файлы</p>
