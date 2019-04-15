@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Helpers;
 use App\Models\Actions;
+use App\Models\File;
 use App\Models\Magazine;
 use App\Models\Category;
 use App\Models\Users;
@@ -114,6 +115,18 @@ class MagazineController extends Controller
         $magazine->magazine_url_kz = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_kz);
         $magazine->magazine_url_en = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_en);
         $magazine->save();
+
+        File::where('magazine_id',$magazine->magazine_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key];
+                $file->magazine_id = $magazine->magazine_id;
+                $file->save();
+            }
+        }
         
         $action = new Actions();
         $action->action_code_id = 2;
@@ -133,9 +146,12 @@ class MagazineController extends Controller
                 DB::raw('DATE_FORMAT(magazine.magazine_date,"%d.%m.%Y %H:%i") as magazine_date'))
             ->first();
 
+        $document_list = File::where('magazine_id',$id)->orderBy('file_id','asc')->get();
+
         return  view('admin.magazine.magazine-edit', [
             'title' => 'Редактировать данные семинара',
-            'row' => $row
+            'row' => $row,
+            'document_list' => $document_list
         ]);
     }
 
@@ -152,11 +168,13 @@ class MagazineController extends Controller
         if ($validator->fails()) {
             $messages = $validator->errors();
             $error = $messages->all();
-            
-            
+
+            $document_list = File::where('magazine_id',$id)->orderBy('file_id','asc')->get();
+
             return  view('admin.magazine.magazine-edit', [
                 'title' => 'Редактировать данные семинара',
                 'row' => (object) $request->all(),
+                'document_list' => $document_list,
                 'error' => $error[0]
             ]);
         }
@@ -195,7 +213,19 @@ class MagazineController extends Controller
         $magazine->magazine_url_kz = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_kz);
         $magazine->magazine_url_en = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_en);
         $magazine->save();
-        
+
+        File::where('magazine_id',$magazine->magazine_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key];
+                $file->magazine_id = $magazine->magazine_id;
+                $file->save();
+            }
+        }
+
         $action = new Actions();
         $action->action_code_id = 3;
         $action->action_comment = 'magazine';

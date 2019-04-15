@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Helpers;
 use App\Models\Actions;
+use App\Models\File;
 use App\Models\Seminar;
 use App\Models\Category;
 use App\Models\Users;
@@ -109,6 +110,18 @@ class SeminarController extends Controller
         $seminar->seminar_url_kz = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_kz);
         $seminar->seminar_url_en = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_en);
         $seminar->save();
+
+        File::where('seminar_id',$seminar->seminar_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key];
+                $file->seminar_id = $seminar->seminar_id;
+                $file->save();
+            }
+        }
         
         $action = new Actions();
         $action->action_code_id = 2;
@@ -128,9 +141,12 @@ class SeminarController extends Controller
                 DB::raw('DATE_FORMAT(seminar.seminar_date,"%d.%m.%Y %H:%i") as seminar_date'))
             ->first();
 
+        $document_list = File::where('seminar_id',$id)->orderBy('file_id','asc')->get();
+        
         return  view('admin.seminar.seminar-edit', [
             'title' => 'Редактировать данные семинара',
-            'row' => $row
+            'row' => $row,
+            'document_list' => $document_list
         ]);
     }
 
@@ -147,12 +163,14 @@ class SeminarController extends Controller
         if ($validator->fails()) {
             $messages = $validator->errors();
             $error = $messages->all();
-            
+
+            $document_list = File::where('seminar_id',$id)->orderBy('file_id','asc')->get();
             
             return  view('admin.seminar.seminar-edit', [
                 'title' => 'Редактировать данные семинара',
                 'row' => (object) $request->all(),
-                'error' => $error[0]
+                'error' => $error[0],
+                'document_list' => $document_list
             ]);
         }
 
@@ -185,6 +203,18 @@ class SeminarController extends Controller
         $seminar->seminar_url_kz = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_kz);
         $seminar->seminar_url_en = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_en);
         $seminar->save();
+
+        File::where('seminar_id',$seminar->seminar_id)->delete();
+        if(isset($request['file_url_input'])){
+            foreach($request['file_url_input'] as $key => $item){
+                $file = new File();
+                $file->file_name_ru = $request['file_multiple_name_ru'][$key];
+                $file->file_url = $request['file_url_input'][$key];
+                $file->is_show = $request['file_multiple_is_show'][$key];
+                $file->seminar_id = $seminar->seminar_id;
+                $file->save();
+            }
+        }
         
         $action = new Actions();
         $action->action_code_id = 3;

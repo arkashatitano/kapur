@@ -67,10 +67,12 @@ class MagazineController extends Controller
 
         if($original_url != '/magazine/'.$url) return redirect($original_url,301);
 
+        $document_list = \App\Models\File::where('is_show',1)->orderBy('file_id','asc')->where('magazine_id',$magazine->magazine_id)->get();
 
         return view('index.magazine.magazine-detail',
             [
                 'magazine' => $magazine,
+                'document_list' => $document_list,
                 'menu' => $menu
             ]);
     }

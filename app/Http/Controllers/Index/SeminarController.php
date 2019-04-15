@@ -70,10 +70,13 @@ class SeminarController extends Controller
 
         $expert = Expert::where('seminar_id',$seminar->seminar_id)->orderBy('sort_num','asc')->get();
 
+        $document_list = \App\Models\File::where('is_show',1)->orderBy('file_id','asc')->where('seminar_id',$seminar->seminar_id)->get();
+
         return view('index.seminar.seminar-detail',
             [
                 'seminar' => $seminar,
                 'menu' => $menu,
+                'document_list' => $document_list,
                 'expert' => $expert
             ]);
     }

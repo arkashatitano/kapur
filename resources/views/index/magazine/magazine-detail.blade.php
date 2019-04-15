@@ -58,6 +58,24 @@
                     <div class="article__body">
                         <div class="row">
                             <div class="col-lg-8">
+
+                                @if(isset($document_list) && count($document_list) > 0)
+
+                                    <div class="article__info mb-20">
+                                        <p>Прикрепленные файлы</p>
+
+                                        @foreach($document_list as $key => $item)
+
+                                                <div class="mb-10">
+                                                    {{$key+1}}. <a target="_blank" href="{{$item->file_url}}">{{$item['file_name_ru']}}</a>
+                                                </div>
+
+                                        @endforeach
+
+                                    </div>
+
+                                @endif
+
                                 <div>
                                     {!! $magazine['magazine_text_'.$lang] !!}
                                 </div>

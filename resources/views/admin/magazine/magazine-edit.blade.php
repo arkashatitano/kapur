@@ -38,7 +38,7 @@
                                                 <li class="nav-item"> <a onclick="showImageUpload()" class="nav-link active" data-toggle="tab" href="#ru" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Русский</span></a> </li>
                                                 <li class="nav-item"> <a onclick="showImageUpload()" class="nav-link" data-toggle="tab" href="#kz" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Казахский</span></a> </li>
                                                 <li class="nav-item"> <a onclick="showImageUpload()" class="nav-link" data-toggle="tab" href="#en" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Английский</span></a> </li>
-                                                <li class="nav-item"> <a onclick="showDocumentUpload()" class="nav-link" data-toggle="tab" href="#pdf" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">PDF</span></a> </li>
+                                                <li class="nav-item"> <a onclick="showDocumentUpload()" class="nav-link" data-toggle="tab" href="#pdf" id="pdf_tab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Файлы</span></a> </li>
                                             </ul>
 
                                             <div class="tab-content tabcontent-border">
@@ -115,9 +115,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="pdf" role="tabpanel">
-                                                    <input type="hidden" class="pdf_url" value="{{$row['magazine_pdf']}}" name="magazine_pdf">
-                                                    <div id="photo_content" style="min-height: 300px">
-                                                        @include('admin.magazine.document-loop')
+                                                    <div class="row" id="photo_content" style="min-height: 300px; padding: 20px">
+                                                        @include('admin.index.document-loop')
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,9 +166,9 @@
                                 <img class="image-src" src="/file.png" style="width: 100%; "/>
                             </div>
                             <div style="background-color: #c2e2f0;height: 40px;margin: 0 auto;width: 2px;"></div>
-                            <form id="image_form_document" enctype="multipart/form-data" method="post" class="image-form">
+                            <form id="image_multiple_form_document" enctype="multipart/form-data" method="post" class="image-form">
                                 <i class="fa fa-plus"></i>
-                                <input id="avatar-file" type="file" onchange="uploadDocument()" name="image"/>
+                                <input id="avatar-file" type="file" onchange="uploadMultipleDocument('index')" name="image"/>
                             </form>
                         </div>
                     </div>
