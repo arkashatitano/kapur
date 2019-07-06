@@ -213,6 +213,10 @@
 .expert__inner {
     margin-bottom: 20px !important;
 }
+.article__body strong {
+    font-weight: bolder !important;
+}
+
 @media screen and (max-width: 350px){
 
 }

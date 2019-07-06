@@ -31,5 +31,5 @@
     <meta content="no" http-equiv="imagetoolbar">
     <![endif]-->
 
-    <link rel="stylesheet" href="/custom/css/main.css?v=9">
+    <link rel="stylesheet" href="/custom/css/main.css?v=10">
 </head>
