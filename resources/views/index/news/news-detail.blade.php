@@ -42,10 +42,14 @@
                 </ul>
 
                 <article class="article">
-                    <header class="article__header">
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($news->news_date)}}</div>
-                        <h1 class="article__title"> {!! $news['news_name_'.$lang] !!}</h1>
+                    <header class="article__header -seminar">
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($publication->news_date)}}</div>
+                        <h1 class="article__title">{!! $publication['news_name_'.$lang] !!}</h1>
+                        <div class="article__img">
+                            <img src="{{$publication['publication_image']}}" alt="">
+                        </div>
                     </header>
+
                     <div class="article__body">
                         <div class="row">
                             <div class="col-lg-8">
