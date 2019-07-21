@@ -51,7 +51,7 @@
                             <th>Фото </th>
                             <th>Название </th>
                             <th>Стоимость </th>
-                            <th>Стоимость с доставкой</th>
+                            <th>Стоимость доставки</th>
                             <th>Дата</th>
                             <th style="width: 15px"></th>
                             <th style="width: 15px"></th>

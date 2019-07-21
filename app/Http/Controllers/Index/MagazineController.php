@@ -9,6 +9,7 @@ use App\Models\Comment;
 use App\Models\Menu;
 use App\Models\Magazine;
 use App\Models\Order;
+use App\Models\PayboxResult;
 use App\Models\Product;
 use App\Models\Rubric;
 use Illuminate\Http\Request;
@@ -78,44 +79,122 @@ class MagazineController extends Controller
     }
 
     public function buyByCash(Request $request){
-        $validator = Validator::make($request->all(), [
-            'user_name' => 'required',
-            'magazine_id' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'organization_name' => 'required',
-            'position' => 'required',
-            'work_phone' => 'required',
-            'city_name' => 'required'
-        ]);
+        $result['is_online'] = 0;
 
-        if ($validator->fails()) {
-            $messages = $validator->errors();
-            $error = $messages->all();
-            $result['status'] = false;
-            $result['error'] = 'Вам следует указать необходимые данные';
-            return $result;
+        if($request->pay_type == 'cash'){
+            $validator = Validator::make($request->all(), [
+                'user_name' => 'required',
+                'magazine_id' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'organization_name' => 'required',
+                'position' => 'required',
+                'work_phone' => 'required',
+                'city_name' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                $messages = $validator->errors();
+                $error = $messages->all();
+                $result['status'] = false;
+                $result['error'] = 'Вам следует указать необходимые данные';
+                return $result;
+            }
+
+            $contact = new Order();
+            $contact->user_name = $request->user_name;
+            $contact->phone = $request->phone;
+            $contact->email = $request->email;
+            $contact->magazine_id = $request->magazine_id;
+            $contact->organization_name = $request->organization_name;
+            $contact->position = $request->position;
+            $contact->work_phone = $request->work_phone;
+            $contact->city_name = $request->city_name;
+            $contact->director_name = $request->director_name;
+            $contact->company_info = $request->company_info;
+            $contact->fax = $request->fax;
+            $contact->pay_type = 'наличными';
+            $contact->is_show = 1;
+            $contact->save();
         }
+        elseif($request->pay_type == 'online' || $request->pay_type == 'online_delivery'){
+            $validator = Validator::make($request->all(), [
+                'user_name' => 'required',
+                'magazine_id' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'city_name' => 'required'
+            ]);
 
-        $contact = new Order();
-        $contact->user_name = $request->user_name;
-        $contact->phone = $request->phone;
-        $contact->email = $request->email;
-        $contact->magazine_id = $request->magazine_id;
-        $contact->organization_name = $request->organization_name;
-        $contact->position = $request->position;
-        $contact->work_phone = $request->work_phone;
-        $contact->city_name = $request->city_name;
-        $contact->director_name = $request->director_name;
-        $contact->company_info = $request->company_info;
-        $contact->fax = $request->fax;
-        $contact->pay_type = 'наличными';
-        $contact->is_show = 1;
-        $contact->save();
+            if ($validator->fails()) {
+                $messages = $validator->errors();
+                $error = $messages->all();
+                $result['status'] = false;
+                $result['error'] = 'Вам следует указать необходимые данные';
+                return $result;
+            }
+
+            $magazine = Magazine::where('magazine_id',$request->magazine_id)->first();
+
+            $contact = new Order();
+            $contact->user_name = $request->user_name;
+            $contact->phone = $request->phone;
+            $contact->email = $request->email;
+            $contact->magazine_id = $request->magazine_id;
+            $contact->city_name = $request->city_name;
+            $contact->pay_type = 'онлайн оплата';
+            $contact->is_show = 1;
+
+            $contact->hash = md5(uniqid(time(), true));
+
+            if($request->pay_type == 'online_delivery'){
+                $contact->price = $magazine->magazine_price + $magazine->magazine_price_delivery;
+                $contact->comment = 'Доставка';
+            }
+            else {
+                $contact->price = $magazine->magazine_price;
+            }
+
+            $contact->save();
+
+            $request->type = 'magazine';
+            $request->cost = $contact->price;
+            $request->hash = $contact->hash;
+            $request->id = $contact->order_id;
+            $request->success_url = URL('/')."/magazine/".$magazine->magazine_id.'-'.$magazine['magazine_url_'.$this->lang].'?success=1';
+
+            $paybox = new PayboxController();
+            $result_payment = $paybox->payment($request);
+
+            $result['status'] = true;
+            $result['is_online'] = 1;
+            $result['href'] = $result_payment;
+            return response()->json($result);
+        }
 
         $result['status'] = true;
         $result['message'] = 'Успешно отправлено';
-
         return response()->json($result);
+    }
+
+    public function confirmMagazinePay(Request $request,$hash,$id)
+    {
+        $paybox_result = new PayboxResult();
+        $paybox_result->paybox_result = $request;
+        $paybox_result->order_id = $id;
+        $paybox_result->save();
+
+
+        if($id > 0) {
+            if (isset($request->pg_result) || $request->pg_result == 1) {
+                $order = Order::where('order_id',$id)
+                                ->where('hash',$hash)
+                                ->first();
+
+                $order->is_pay = 1;
+                $order->transaction_number = $request->pg_payment_id;
+                $order->save();
+            }
+        }
     }
 }

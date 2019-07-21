@@ -15,7 +15,7 @@
                 <div class="control">
                     <div class="control__group">
                         <input class="with-gap pay_type" name="pay_type" value="online_delivery" type="radio" id="test4" />
-                        <label for="test4">Купить онлайн, журнал с доставкой {{$magazine->magazine_price_delivery}}тг</label>
+                        <label for="test4">Купить онлайн, журнал с доставкой {{$magazine->magazine_price + $magazine->magazine_price_delivery}}тг</label>
                     </div>
                 </div>
                 <div class="control">
@@ -63,7 +63,7 @@
                     </div>
                     <span class="control__help">Это поле нужно заполнить</span>
                 </div>
-                <div class="control">
+                <div class="control add-form-input">
                     <div class="control__group">
                         <input type="text" id="organization_name" class="control__input" required />
                         <label class="control__label">Организация</label>
@@ -71,7 +71,7 @@
                     </div>
                     <span class="control__help">Это поле нужно заполнить</span>
                 </div>
-                <div class="control">
+                <div class="control add-form-input">
                     <div class="control__group">
                         <input type="text" id="position" class="control__input" required />
                         <label class="control__label">Должность</label>
@@ -79,7 +79,7 @@
                     </div>
                     <span class="control__help">Это поле нужно заполнить</span>
                 </div>
-                <div class="control">
+                <div class="control add-form-input">
                     <div class="control__group">
                         <input type="text" id="work_phone" class="control__input" required />
                         <label class="control__label">Служебный номер с кодом города</label>
@@ -87,7 +87,7 @@
                     </div>
                     <span class="control__help">Это поле нужно заполнить</span>
                 </div>
-                <div class="control">
+                <div class="control add-form-input">
                     <div class="control__group">
                         <input type="text" id="fax" class="control__input" required />
                         <label class="control__label">Факс с кодом города</label>
@@ -119,7 +119,7 @@
                     </div>
                     <span class="control__help">Это поле нужно заполнить</span>
                 </div>
-                <div class="control">
+                <div class="control add-form-input">
                     <div class="control__group">
                         <input type="text" id="company_info" class="control__input" required />
                         <label class="control__label">Реквизиты компании</label>
@@ -127,7 +127,7 @@
                     </div>
                     <span class="control__help">Это поле нужно заполнить</span>
                 </div>
-                <div class="control">
+                <div class="control add-form-input">
                     <div class="control__group">
                         <input type="text" id="director_name" class="control__input" required />
                         <label class="control__label">Ф.И.О и должность первого руководителя</label>

@@ -446,6 +446,13 @@ class Helpers {
         return $row;
     }
 
+    public static function changePhoneFormatWithoutSeven($phone){
+        $format = array("(", ")", "+7", " ", "-",);
+        $phone = str_replace($format, "", $phone);
+        if($phone != '') return $phone;
+        return '';
+    }
+
     public static function checkExistCompare($product_id){
         $user_id = Helpers::getUserId();
         if($user_id > 0)

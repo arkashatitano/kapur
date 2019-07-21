@@ -472,17 +472,25 @@ function addRegister() {
     });
 }
 
+var g_pay_type  = 0;
+
 function payMagazine(){
     $('#modal-pay').modal('hide');
 
+    g_pay_type = $('.pay_type:checked').val();
+
     if($('.pay_type:checked').val() == 'cash'){
-        $('#pay-information').modal('show');
-        $('#modal-pay').modal('hide');
+        $('.add-form-input').css('display','block');
     }
     else {
-
+        $('.add-form-input').css('display','none');
     }
+
+    $('#pay-information').modal('show');
+    $('#modal-pay').modal('hide');
 }
+
+
 
 function buyByCashMagazine() {
     $('.ajax-loader').fadeIn(100);
@@ -495,6 +503,7 @@ function buyByCashMagazine() {
         data: {
             user_name: $('#user_name').val(),
             magazine_id: $('#magazine_id').val(),
+            pay_type: g_pay_type,
             phone: $('#phone').val(),
             email: $('#email').val(),
             organization_name: $('#organization_name').val(),
@@ -513,6 +522,12 @@ function buyByCashMagazine() {
             }
             $('#comment').val('');
             $('#pay-information').modal('hide');
+
+            if(data.is_online == 1){
+                window.location.href = data.href;
+                return;
+            }
+
             showMessage(data.message);
         }
     });

@@ -12,6 +12,6 @@ class Magazine extends Model
     protected $table = 'magazine';
     protected $primaryKey = 'magazine_id';
 
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
+    /*use SoftDeletes;
+    protected $dates = ['deleted_at'];*/
 }

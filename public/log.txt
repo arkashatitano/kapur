@@ -1,0 +1,45 @@
+514936
+22
+5000
+77018932363
+arman.abdiyev@gmail.com
+https://localhost/paybox-result/magazine//22
+http://localhost/paybox/magazine/-022
+http://localhost?error-paybox=1
+Покупка журнала на kap.kz
+z58t43h2jto
+POST
+AUTOPOST
+frame
+885d534316e30d5f472876508dbed994
+pg_merchant_id=514936&pg_order_id=22&pg_amount=5000&pg_user_phone=77018932363&pg_user_email=arman.abdiyev%40gmail.com&pg_result_url=https%3A%2F%2Flocalhost%2Fpaybox-result%2Fmagazine%2F%2F22&pg_success_url=http%3A%2F%2Flocalhost%2Fpaybox%2Fmagazine%2F-022&pg_failure_url=http%3A%2F%2Flocalhost%3Ferror-paybox%3D1&pg_description=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B0+%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D0%B0+%D0%BD%D0%B0+kap.kz&pg_salt=z58t43h2jto&pg_request_method=POST&pg_success_url_method=AUTOPOST&pg_payment_route=frame&pg_sig=885d534316e30d5f472876508dbed994
+514936
+23
+5000
+77018932363
+arman.abdiyev@gmail.com
+https://localhost/paybox-result/magazine//23
+http://localhost/paybox/magazine/-023
+http://localhost?error-paybox=1
+Покупка журнала на kap.kz
+z1ea2819t5q
+POST
+AUTOPOST
+frame
+2c3c0df5fa3a59c594fa412b8a839fda
+pg_merchant_id=514936&pg_order_id=23&pg_amount=5000&pg_user_phone=77018932363&pg_user_email=arman.abdiyev%40gmail.com&pg_result_url=https%3A%2F%2Flocalhost%2Fpaybox-result%2Fmagazine%2F%2F23&pg_success_url=http%3A%2F%2Flocalhost%2Fpaybox%2Fmagazine%2F-023&pg_failure_url=http%3A%2F%2Flocalhost%3Ferror-paybox%3D1&pg_description=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B0+%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D0%B0+%D0%BD%D0%B0+kap.kz&pg_salt=z1ea2819t5q&pg_request_method=POST&pg_success_url_method=AUTOPOST&pg_payment_route=frame&pg_sig=2c3c0df5fa3a59c594fa412b8a839fda
+514936
+24
+5500
+7018932363
+arman.abdiyev@gmail.com
+https://localhost/paybox-result/magazine/7e7e20ca37417dfe7a553fc2fa19978c/24
+http://localhost/magazine/5-/magazine/5-ekologiya-i-promyshlennost-kazakhstana?success=1
+http://localhost?error-paybox=1
+Покупка журнала на kap.kz
+z0tgkq51nl1
+POST
+AUTOPOST
+frame
+b11df54cdf67397ccb5c2133a5548133
+pg_merchant_id=514936&pg_order_id=24&pg_amount=5500&pg_user_phone=7018932363&pg_user_email=arman.abdiyev%40gmail.com&pg_result_url=https%3A%2F%2Flocalhost%2Fpaybox-result%2Fmagazine%2F7e7e20ca37417dfe7a553fc2fa19978c%2F24&pg_success_url=http%3A%2F%2Flocalhost%2Fmagazine%2F5-%2Fmagazine%2F5-ekologiya-i-promyshlennost-kazakhstana%3Fsuccess%3D1&pg_failure_url=http%3A%2F%2Flocalhost%3Ferror-paybox%3D1&pg_description=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B0+%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D0%B0+%D0%BD%D0%B0+kap.kz&pg_salt=z0tgkq51nl1&pg_request_method=POST&pg_success_url_method=AUTOPOST&pg_payment_route=frame&pg_sig=b11df54cdf67397ccb5c2133a5548133

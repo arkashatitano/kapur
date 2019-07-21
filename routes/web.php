@@ -152,6 +152,8 @@ Route::group([
     Route::get('exposition', 'ExpositionController@showExpositionList');
     Route::get('exposition/{url}', 'ExpositionController@showExpositionById');
 
+    Route::post('paybox-result/magazine/{hash}/{id}', 'MagazineController@confirmMagazinePay');
+
     Route::get('{url}', 'PageController@showPage');
 
 

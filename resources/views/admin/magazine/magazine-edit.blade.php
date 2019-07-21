@@ -125,8 +125,12 @@
                                                 <input value="{{ $row->magazine_number }}" type="text" class="form-control" name="magazine_number" placeholder="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Стоимость журнала для Paybox</label>
+                                                <label>Стоимость журнала (без доставки)</label>
                                                 <input value="{{ $row->magazine_price }}" type="number" class="form-control" name="magazine_price" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Стоимость доставки</label>
+                                                <input value="{{ $row->magazine_price_delivery }}" type="number" class="form-control" name="magazine_price_delivery" placeholder="">
                                             </div>
                                             <div class="form-group">
                                                 <label>Отображать на главной странице</label>
