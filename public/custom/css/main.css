@@ -218,13 +218,17 @@
 }
 .logo__img {
     background-image: url('/logo.png') !important;
+    background-size: auto 54px !important;
 }
 @media screen and (max-width: 350px){
 
 }
 
 @media screen and (max-width: 640px) {
-
+    .logo__img {
+        background-image: url('/logo.png') !important;
+        background-size: auto 48px !important;
+    }
 }
 @media screen and (max-width: 480px){
 
