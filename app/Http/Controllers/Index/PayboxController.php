@@ -72,6 +72,7 @@ class PayboxController extends Controller
             $arrReq['pg_success_url']      = $request->success_url;
             $arrReq['pg_failure_url']      = URL('/'). "?error-paybox=1";
 
+
             if(isset($request->type) && $request->type == 'magazine'){
                 $arrReq['pg_description'] = "Покупка журнала на kap.kz"; // Описание заказа (показывается в Платёжной системе)
             }
@@ -82,6 +83,8 @@ class PayboxController extends Controller
             $arrReq['pg_salt'] = $rand_str;
             $arrReq['pg_request_method'] = "POST";
       //      $arrReq['pg_payment_system'] = "TEST";
+
+            $arrReq['pg_testing_mode'] = '1';
             $arrReq['pg_success_url_method'] = 'AUTOPOST';
             $arrReq['pg_payment_route'] = 'frame';
 

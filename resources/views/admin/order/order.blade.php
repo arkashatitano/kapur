@@ -134,7 +134,7 @@
                                     <p>{{$val->comment}}</p>
 
                                     @if($val->transaction_number != '' && $val->is_pay == 1)
-                                        <p style="color: green"><strong>Номер транзакции: </strong>{{$val->transaction_number}}</p>
+                                        <p style="color: green"><strong>Оплачено, Номер транзакции: </strong>{{$val->transaction_number}}</p>
                                     @endif
 
                                     @if($val->is_pay == 0)
