@@ -69,7 +69,7 @@
 
                                         @foreach($document_list as $key => $item)
 
-                                            @if($publication->publication_price == 0 || ($publication->publication_price > 0 && $item->is_show == 1))
+                                            @if(($publication->publication_price == 0 && $is_payed == 0) || ($publication->publication_price > 0 && $item->is_show == 1))
 
                                             <div class="mb-10">
                                                 {{$key+1}}. <a target="_blank" href="{{$item->file_url}}">{{$item['file_name_ru']}}</a>
@@ -83,7 +83,7 @@
 
                                 @endif
 
-                                @if($publication->publication_price == 0)
+                                @if($publication->publication_price == 0 && $is_payed == 0)
 
                                     <div>
                                         {!! $publication['publication_text_'.$lang] !!}
