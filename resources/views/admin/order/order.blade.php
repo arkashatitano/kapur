@@ -133,9 +133,14 @@
                                     <p>{{$val->pay_type}}</p>
                                     <p>{{$val->comment}}</p>
 
-                                    @if($val->transaction_number != '')
-                                        <p><strong>Номер транзакции: </strong>{{$val->transaction_number}}</p>
+                                    @if($val->transaction_number != '' && $val->is_pay == 1)
+                                        <p style="color: green"><strong>Номер транзакции: </strong>{{$val->transaction_number}}</p>
                                     @endif
+
+                                    @if($val->is_pay == 0)
+                                        <p style="color: red">Не оплачено</p>
+                                    @endif
+
                                 </td>
                                 <td>
                                     {{ \App\Http\Helpers::getDateFormat($val->date)}}
