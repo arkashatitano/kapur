@@ -7,10 +7,10 @@
         <div class="row page-titles">
             <div class="col-md-8 col-8 align-self-center">
                 <h3 class="text-themecolor m-b-0 m-t-0 d-inline-block menu-tab">
-                    <a href="/admin/order?active=1" class="@if($request->active == '1') active-page @endif">Новые</a>
+                    <a href="/admin/order/publication?active=1" class="@if($request->active == '1') active-page @endif">Новые</a>
                 </h3>
                 <h3 class="text-themecolor m-b-0 m-t-0 d-inline-block menu-tab second-tab" >
-                    <a href="/admin/order" class="@if(!isset($request->active) || $request->active == '0') active-page @endif">Прочитанные</a>
+                    <a href="/admin/order/publication" class="@if(!isset($request->active) || $request->active == '0') active-page @endif">Прочитанные</a>
                 </h3>
                 <div class="clear-float"></div>
             </div>
@@ -47,7 +47,7 @@
                         <tr style="border: 1px">
                             <th style="width: 30px">№</th>
                             <th>ФИО </th>
-                            <th>Журнал </th>
+                            <th>Статья </th>
                             <th>Стоимость </th>
                             <th style="min-width: 300px">Инфо </th>
                             <th>Оплата</th>
@@ -88,7 +88,7 @@
                                 </td>
                                 <td class="arial-font">
                                     <div>
-                                        {{ $val->magazine_name_ru }}
+                                        {{ $val->publication_name_ru }}
                                     </div>
                                 </td>
                                 <td class="arial-font">
@@ -103,31 +103,6 @@
                                     @if($val->city_name != '')
                                         <p><strong>Город: </strong>{{$val->city_name}}</p>
                                     @endif
-
-                                    @if($val->organization_name != '')
-                                        <p><strong>Организация: </strong>{{$val->organization_name}}</p>
-                                    @endif
-
-                                    @if($val->position != '')
-                                        <p><strong>Должность: </strong>{{$val->position}}</p>
-                                    @endif
-
-                                    @if($val->work_phone != '')
-                                        <p><strong>Служебный номер: </strong>{{$val->work_phone}}</p>
-                                    @endif
-
-                                    @if($val->fax != '')
-                                        <p><strong>Факс: </strong>{{$val->fax}}</p>
-                                    @endif
-
-                                    @if($val->company_info != '')
-                                        <p><strong>Реквизиты компании: </strong>{{$val->company_info}}</p>
-                                    @endif
-
-                                    @if($val->director_name != '')
-                                        <p><strong>Директор: </strong>{{$val->director_name}}</p>
-                                    @endif
-
                                 </td>
                                 <td>
                                     <p>{{$val->pay_type}}</p>

@@ -74,6 +74,7 @@ Route::group([
     Route::post('project/is_show', 'ProjectController@changeIsShow');
     Route::resource('project', 'ProjectController');
 
+    Route::get('order/publication', 'OrderController@article');
     Route::get('order/seminar', 'OrderController@seminar');
     Route::post('order/is_show', 'OrderController@changeIsShow');
     Route::resource('order', 'OrderController');

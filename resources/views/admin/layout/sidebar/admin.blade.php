@@ -16,9 +16,19 @@
           <i class="fa fa-list"></i>
           <? $count = \App\Models\Order::where('is_show','=','1')->where('magazine_id','>',0)->count();?>
 
-          <span>Заявки на журнал</span>
+          <span>Заявки на журнал </span>
 
-          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count">{{$count}}</span>
+          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block; position: relative; right: 0; left: 25px" @endif id="review_count">{{$count}}</span>
+        </a>
+      </li>
+      <li class="treeview @if(isset($menu) && $menu == 'order-publication') active @endif">
+        <a href="/admin/order/publication?active=1">
+          <i class="fa fa-list"></i>
+          <? $count = \App\Models\Order::where('is_show','=','1')->where('publication_id','>',0)->count();?>
+
+          <span>Заявки на статьи </span>
+
+          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block; position: relative; right: 0; left: 25px" @endif id="review_count">{{$count}}</span>
         </a>
       </li>
       <li class="treeview @if(isset($menu) && $menu == 'order-seminar') active @endif">
@@ -28,7 +38,7 @@
 
           <span>Заявки на семинар</span>
 
-          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block" @endif id="review_count2">{{$count}}</span>
+          <span class="label label-primary pull-right notice-icon" @if($count > 0) style="display: block; position: relative; right: 0; left: 25px" @endif id="review_count2">{{$count}}</span>
         </a>
       </li>
       <li @if(isset($menu) && $menu == 'magazine') class="active"  @endif>
