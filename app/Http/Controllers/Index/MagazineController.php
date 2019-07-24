@@ -161,7 +161,7 @@ class MagazineController extends Controller
             $request->cost = $contact->price;
             $request->hash = $contact->hash;
             $request->id = $contact->order_id;
-            $request->success_url = URL('/')."/magazine/".$magazine->magazine_id.'-'.$magazine['magazine_url_'.$this->lang].'?success=1';
+            $request->success_url = URL('/').$magazine['magazine_url_'.$this->lang].'?success=1';
 
             $paybox = new PayboxController();
             $result_payment = $paybox->payment($request);

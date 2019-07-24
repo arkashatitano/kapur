@@ -7,6 +7,8 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Menu;
+use App\Models\Order;
+use App\Models\PayboxResult;
 use App\Models\Publication;
 use App\Models\Product;
 use App\Models\Rubric;
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 use Auth;
+use Cookie;
 
 class PublicationController extends Controller
 {
@@ -95,13 +98,105 @@ class PublicationController extends Controller
 
         $document_list = \App\Models\File::orderBy('file_id','asc')->where('publication_id',$publication->publication_id)->get();
 
+        $is_payed = 0;
+
+        if(isset($_COOKIE["publication_".$publication->publication_id.'_hash']) && isset($_COOKIE["publication_".$publication->publication_id.'_id'])){
+
+            $_GET['hash'] = $_COOKIE["publication_".$publication->publication_id.'_hash'];
+            $_GET['id'] = $_COOKIE["publication_".$publication->publication_id.'_id'];
+        }
+
+        if(isset($_GET['hash']) && isset($_GET['id'])){
+            $order = Order::where('publication_id',$publication->publication_id)
+                          ->where('order_id',$_GET['id'])
+                          ->where('hash',$_GET['hash'])
+                          ->where('is_pay',1)
+                          ->first();
+
+            if($order != null) {
+                $is_payed = 1;
+                setcookie("publication_".$publication->publication_id.'_hash',$_GET['hash'], time() + (86400 * 30), "/");
+                setcookie("publication_".$publication->publication_id.'_id',$_GET['id'], time() + (86400 * 30), "/");
+            }
+        }
+
         return view('index.publication.publication-detail',
             [
                 'publication' => $publication,
                 'other_publication_list' => $other_publication_list,
                 'document_list' => $document_list,
+                'is_payed' => $is_payed,
                 'menu' => $menu
             ]);
+    }
+
+    public function buyPublication(Request $request){
+        $validator = Validator::make($request->all(), [
+            'user_name' => 'required',
+            'publication_id' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'city_name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            $messages = $validator->errors();
+            $error = $messages->all();
+            $result['status'] = false;
+            $result['error'] = 'Вам следует указать необходимые данные';
+            return $result;
+        }
+
+        $publication = Publication::where('publication_id',$request->publication_id)->first();
+
+        $contact = new Order();
+        $contact->user_name = $request->user_name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->publication_id = $request->publication_id;
+        $contact->city_name = $request->city_name;
+        $contact->pay_type = 'онлайн оплата журнала';
+        $contact->is_magazine = 0;
+        $contact->is_show = 1;
+
+        $contact->hash = md5(uniqid(time(), true));
+        $contact->price = $publication->publication_price;
+        $contact->save();
+
+        $request->type = 'publication';
+        $request->cost = $contact->price;
+        $request->hash = $contact->hash;
+        $request->id = $contact->order_id;
+        $request->success_url = URL('/').$publication['publication_url_'.$this->lang].'?hash='.$contact->hash.'&id='.$contact->order_id;
+
+        $paybox = new PayboxController();
+        $result_payment = $paybox->payment($request);
+
+        $result['status'] = true;
+        $result['is_online'] = 1;
+        $result['href'] = $result_payment;
+        return response()->json($result);
+    }
+
+    public function confirmPublicationPay(Request $request,$hash,$id)
+    {
+        $paybox_result = new PayboxResult();
+        $paybox_result->paybox_result = $request;
+        $paybox_result->order_id = $id;
+        $paybox_result->save();
+
+
+        if($id > 0) {
+            if (isset($request->pg_result) || $request->pg_result == 1) {
+                $order = Order::where('order_id',$id)
+                    ->where('hash',$hash)
+                    ->first();
+
+                $order->is_pay = 1;
+                $order->transaction_number = $request->pg_payment_id;
+                $order->save();
+            }
+        }
     }
 
 }

@@ -216,7 +216,9 @@
 .article__body strong {
     font-weight: bolder !important;
 }
-
+.logo__img {
+    background-image: url('/logo.png') !important;
+}
 @media screen and (max-width: 350px){
 
 }

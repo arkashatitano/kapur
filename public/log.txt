@@ -43,3 +43,33 @@ AUTOPOST
 frame
 b11df54cdf67397ccb5c2133a5548133
 pg_merchant_id=514936&pg_order_id=24&pg_amount=5500&pg_user_phone=7018932363&pg_user_email=arman.abdiyev%40gmail.com&pg_result_url=https%3A%2F%2Flocalhost%2Fpaybox-result%2Fmagazine%2F7e7e20ca37417dfe7a553fc2fa19978c%2F24&pg_success_url=http%3A%2F%2Flocalhost%2Fmagazine%2F5-%2Fmagazine%2F5-ekologiya-i-promyshlennost-kazakhstana%3Fsuccess%3D1&pg_failure_url=http%3A%2F%2Flocalhost%3Ferror-paybox%3D1&pg_description=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B0+%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D0%B0+%D0%BD%D0%B0+kap.kz&pg_salt=z0tgkq51nl1&pg_request_method=POST&pg_success_url_method=AUTOPOST&pg_payment_route=frame&pg_sig=b11df54cdf67397ccb5c2133a5548133
+514936
+25
+5500
+7018932363
+arman.abdiyev@gmail.com
+https://localhost/paybox-result/magazine/14ca5ecc79876a91da76b5b1dde003f2/25
+http://localhost/magazine/5-/magazine/5-ekologiya-i-promyshlennost-kazakhstana?success=1
+http://localhost?error-paybox=1
+Покупка журнала на kap.kz
+zw9qoddho3a
+POST
+AUTOPOST
+frame
+d976b94d2f1b150173512e62584ec9ab
+pg_merchant_id=514936&pg_order_id=25&pg_amount=5500&pg_user_phone=7018932363&pg_user_email=arman.abdiyev%40gmail.com&pg_result_url=https%3A%2F%2Flocalhost%2Fpaybox-result%2Fmagazine%2F14ca5ecc79876a91da76b5b1dde003f2%2F25&pg_success_url=http%3A%2F%2Flocalhost%2Fmagazine%2F5-%2Fmagazine%2F5-ekologiya-i-promyshlennost-kazakhstana%3Fsuccess%3D1&pg_failure_url=http%3A%2F%2Flocalhost%3Ferror-paybox%3D1&pg_description=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B0+%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D0%B0+%D0%BD%D0%B0+kap.kz&pg_salt=zw9qoddho3a&pg_request_method=POST&pg_success_url_method=AUTOPOST&pg_payment_route=frame&pg_sig=d976b94d2f1b150173512e62584ec9ab
+514936
+26
+1000
+87018932363
+arman.abdiyev@gmail.com
+https://localhost/paybox-result/publication/7dd69f53b01c24089636a1aa6e86bfab/26
+http://localhost/publication/40-/article/40-printsipy-i-zakonodatelnye-trebovaniya-k-protsessu-normirovaniya-emissiy-v-okrud?success=1
+http://localhost?error-paybox=1
+Покупка статьи на kap.kz
+z5ezb1bgb8d
+POST
+AUTOPOST
+frame
+e602ba372ba50f9a7e5aa42083543943
+pg_merchant_id=514936&pg_order_id=26&pg_amount=1000&pg_user_phone=87018932363&pg_user_email=arman.abdiyev%40gmail.com&pg_result_url=https%3A%2F%2Flocalhost%2Fpaybox-result%2Fpublication%2F7dd69f53b01c24089636a1aa6e86bfab%2F26&pg_success_url=http%3A%2F%2Flocalhost%2Fpublication%2F40-%2Farticle%2F40-printsipy-i-zakonodatelnye-trebovaniya-k-protsessu-normirovaniya-emissiy-v-okrud%3Fsuccess%3D1&pg_failure_url=http%3A%2F%2Flocalhost%3Ferror-paybox%3D1&pg_description=%D0%9F%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B0+%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8+%D0%BD%D0%B0+kap.kz&pg_salt=z5ezb1bgb8d&pg_request_method=POST&pg_success_url_method=AUTOPOST&pg_payment_route=frame&pg_sig=e602ba372ba50f9a7e5aa42083543943

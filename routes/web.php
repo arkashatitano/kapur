@@ -109,6 +109,7 @@ Route::group([
 
     Route::post('ajax/register', 'SeminarController@register');
     Route::post('ajax/magazine/buy/cash', 'MagazineController@buyByCash');
+    Route::post('ajax/publication/buy', 'PublicationController@buyPublication');
 
     Route::get('/', 'IndexController@index');
 
@@ -152,7 +153,8 @@ Route::group([
     Route::get('exposition', 'ExpositionController@showExpositionList');
     Route::get('exposition/{url}', 'ExpositionController@showExpositionById');
 
-    Route::post('paybox-result/magazine/{hash}/{id}', 'MagazineController@confirmMagazinePay');
+    Route::any('paybox-result/magazine/{hash}/{id}', 'MagazineController@confirmMagazinePay');
+    Route::any('paybox-result/publication/{hash}/{id}', 'PublicationController@confirmPublicationPay');
 
     Route::get('{url}', 'PageController@showPage');
 

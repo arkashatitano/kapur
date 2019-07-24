@@ -533,3 +533,41 @@ function buyByCashMagazine() {
     });
 }
 
+
+function buyArticle() {
+    $('.ajax-loader').fadeIn(100);
+    $.ajax({
+        url:'/ajax/publication/buy',
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+            user_name: $('#user_name').val(),
+            publication_id: $('#publication_id').val(),
+            phone: $('#phone').val(),
+            email: $('#email').val(),
+            city_name: $('#city_name').val()
+        },
+        success: function (data) {
+            $('.ajax-loader').fadeOut(100);
+            if(data.status == 0){
+                showError(data.error);
+                return;
+            }
+            $('#comment').val('');
+            $('#pay-information').modal('hide');
+
+            if(data.is_online == 1){
+                window.location.href = data.href;
+                return;
+            }
+
+            showMessage(data.message);
+        }
+    });
+}
+
+function showPayFormArticle(){
+    $('#pay-information').modal('show');
+}

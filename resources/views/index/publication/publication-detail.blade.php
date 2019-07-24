@@ -41,11 +41,18 @@
                     <li class="breadcrumbs__item -active">{{$publication['publication_name_'.$lang]}}</li>
                 </ul>
 
-                <article class="article @if($publication->publication_price > 0) -demo @endif">
+                <article class="article @if($publication->publication_price > 0 && $is_payed == 0) -demo @endif">
                     <header class="article__header -seminar">
+                        <input type="hidden" value="{{$publication->publication_id}}" id="publication_id"/>
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat($publication->publication_date)}}</div>
                         <h1 class="article__title">{!! $publication['publication_name_'.$lang] !!}</h1>
-                        <a href="#" class="button -underline_white article__button">Купить статью</a>
+
+                        @if($publication->publication_price > 0 && $is_payed == 0)
+
+                            <a href="javascript:void(0)" onclick="showPayFormArticle()" class="button -underline_white article__button">Купить статью</a>
+
+                        @endif
+
                         <div class="article__img">
                             <img src="{{$publication['publication_image']}}" alt="">
                         </div>
@@ -111,12 +118,12 @@
             </section>
             <!--/. Container End -->
 
-            @if($publication->publication_price > 0)
-                <div class="divider mt-5"></div>
+            @if($publication->publication_price > 0 && $is_payed == 0)
+                {{--<div class="divider mt-5"></div>--}}
                 <div class="subs">
                     <div class="container">
                         <h3 class="subs__title">Данная статья является платной и доступна только после покупки. Стоимость: {{$publication->publication_price}} тг.</h3>
-                        <a href="#" class="button -underline_white">Купить статью</a>
+                        <a href="javascript:void(0)" onclick="showPayFormArticle()" class="button -underline_white">Купить статью</a>
                     </div>
                 </div>
             @endif
@@ -133,6 +140,12 @@
                        @include('index.publication.publication-list-loop',['publication_list' => $other_publication_list])
                     </div>
                 </section>
+
+            @endif
+
+            @if($publication->publication_price > 0 && $is_payed == 0)
+
+                @include('index.publication.pay-modal')
 
             @endif
 
