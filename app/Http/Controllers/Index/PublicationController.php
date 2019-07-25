@@ -201,7 +201,7 @@ class PublicationController extends Controller
                 $order->save();
 
                 $publication = Publication::where('publication_id',$order->publication_id)->first();
-                $email[0] = 'arman.abdiyev@gmail.com';
+                $email[0] = $order->email;
 
                 $objDemo = new \stdClass();
                 $objDemo->user_name = $order['user_name'];

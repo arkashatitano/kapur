@@ -198,7 +198,7 @@ class MagazineController extends Controller
                 $order->save();
 
                 $magazine = Magazine::where('magazine_id',$order->magazine_id)->first();
-                $email[0] = 'arman.abdiyev@gmail.com';
+                $email[0] = $order->email;
 
                 $objDemo = new \stdClass();
                 $objDemo->user_name = $order['user_name'];
