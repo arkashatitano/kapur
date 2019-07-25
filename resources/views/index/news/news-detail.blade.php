@@ -8,7 +8,7 @@
     <meta property="og:title" content="{{$news['news_name_'.$lang]}}" />
     <meta property="og:description" content="{{$news['news_meta_description_'.$lang]}}" />
     <meta property="og:url" content="{{URL('/')}}/{{$news['news_url_'.$lang]}}" />
-    <meta property="og:image" content="{{$news->news_image}}" />
+    <meta property="og:image" content="{{URL('/')}}{{$news->news_image}}" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="500" />

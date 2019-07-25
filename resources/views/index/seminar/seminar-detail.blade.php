@@ -8,7 +8,7 @@
     <meta property="og:title" content="{{$seminar['seminar_name_'.$lang]}}" />
     <meta property="og:description" content="{{$seminar['seminar_meta_description_'.$lang]}}" />
     <meta property="og:url" content="{{URL('/')}}/{{$seminar['seminar_url_'.$lang]}}" />
-    <meta property="og:image" content="{{$seminar->seminar_image}}" />
+    <meta property="og:image" content="{{URL('/')}}{{$seminar->seminar_image}}" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="500" />
