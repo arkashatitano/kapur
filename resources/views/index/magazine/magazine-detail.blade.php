@@ -94,7 +94,7 @@
                             <div class="col-lg-4 order-lg-first">
                                 <div class="article-social">
                                     <div class="article-social__title">Поделиться:</div>
-                                    <div class="addthis_inline_share_toolbox_jy5t"></div>
+                                    <div class="addthis_inline_share_toolbox"></div>
                                 </div>
                             </div>
                         </div>
@@ -119,5 +119,5 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c98a5a402aee812"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3942e8649f2396"></script>
 @endsection
