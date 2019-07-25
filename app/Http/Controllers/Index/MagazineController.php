@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Index;
 
 use App\Http\Helpers;
+use App\Mail\MagazineEmail;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Menu;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Magazine;
 use App\Models\Order;
 use App\Models\PayboxResult;
@@ -194,6 +196,21 @@ class MagazineController extends Controller
                 $order->is_pay = 1;
                 $order->transaction_number = $request->pg_payment_id;
                 $order->save();
+
+                $magazine = Magazine::where('magazine_id',$order->magazine_id)->first();
+                $email[0] = 'arman.abdiyev@gmail.com';
+
+                $objDemo = new \stdClass();
+                $objDemo->user_name = $order['user_name'];
+                $objDemo->magazine_name = $magazine['magazine_name_'.$this->lang];
+                $objDemo->magazine_url = URL('/').$magazine['magazine_url_'.$this->lang].'?hash='.$order->hash.'&id='.$order->order_id;
+
+                $objDemo->document_list = \App\Models\File::where('is_show',1)
+                                                ->orderBy('file_id','asc')
+                                                ->where('magazine_id',$magazine->magazine_id)
+                                                ->get();
+
+                $result_email = Mail::to($email)->send(new MagazineEmail($objDemo));
             }
         }
     }
