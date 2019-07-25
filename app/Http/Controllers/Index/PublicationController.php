@@ -181,14 +181,6 @@ class PublicationController extends Controller
 
     public function confirmPublicationPay(Request $request,$hash,$id)
     {
-        if($request->ok == 1){
-            $email[0] = 'arman.abdiyev@gmail.com';
-
-            $objDemo = new \stdClass();
-            $result_email = Mail::to($email)->send(new DemoEmail($objDemo));
-            dd($result_email);
-        }
-
         $paybox_result = new PayboxResult();
         $paybox_result->paybox_result = $request;
         $paybox_result->order_id = $id;
@@ -212,7 +204,9 @@ class PublicationController extends Controller
                 $email[0] = 'arman.abdiyev@gmail.com';
 
                 $objDemo = new \stdClass();
-                $objDemo->url = URL('/').$publication['publication_url_'.$this->lang].'?hash='.$order->hash.'&id='.$order->order_id;
+                $objDemo->user_name = $order['user_name'];
+                $objDemo->publication_name = $publication['publication_name_'.$this->lang];
+                $objDemo->publication_url = URL('/').$publication['publication_url_'.$this->lang].'?hash='.$order->hash.'&id='.$order->order_id;
 
                 $result_email = Mail::to($email)->send(new DemoEmail($objDemo));
             }
