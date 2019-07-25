@@ -7,7 +7,7 @@
 @foreach($param->document_list as $key => $item)
 
     <p>
-        {{$key+1}}. <a href="{{$item->file_url}}">{{$item['file_name_ru']}}</a>
+        {{$key+1}}. <a href="{{URL('/')}}{{$item->file_url}}">{{$item['file_name_ru']}}</a>
     </p>
 
 @endforeach
