@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Index;
 
 use App\Http\Helpers;
+use App\Mail\DemoEmail;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Comment;
@@ -14,7 +15,7 @@ use App\Models\Product;
 use App\Models\Rubric;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
@@ -180,6 +181,14 @@ class PublicationController extends Controller
 
     public function confirmPublicationPay(Request $request,$hash,$id)
     {
+        if($request->ok == 1){
+            $email[0] = 'arman.abdiyev@gmail.com';
+
+            $objDemo = new \stdClass();
+            $result_email = Mail::to($email)->send(new DemoEmail($objDemo));
+            dd($result_email);
+        }
+
         $paybox_result = new PayboxResult();
         $paybox_result->paybox_result = $request;
         $paybox_result->order_id = $id;
@@ -190,11 +199,22 @@ class PublicationController extends Controller
             if (isset($request->pg_result) || $request->pg_result == 1) {
                 $order = Order::where('order_id',$id)
                     ->where('hash',$hash)
+                    ->where('is_pay',0)
                     ->first();
+
+                if($order == null) return;
 
                 $order->is_pay = 1;
                 $order->transaction_number = $request->pg_payment_id;
                 $order->save();
+
+                $publication = Publication::where('publication_id',$order->publication_id)->first();
+                $email[0] = 'arman.abdiyev@gmail.com';
+
+                $objDemo = new \stdClass();
+                $objDemo->url = URL('/').$publication['publication_url_'.$this->lang].'?hash='.$order->hash.'&id='.$order->order_id;
+
+                $result_email = Mail::to($email)->send(new DemoEmail($objDemo));
             }
         }
     }
