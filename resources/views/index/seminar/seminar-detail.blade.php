@@ -43,7 +43,7 @@
 
                 <article class="article">
                     <header class="article__header -seminar">
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($seminar->seminar_date)}}</div>
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat3($seminar->seminar_date)}}</div>
                         <h1 class="article__title">{!! $seminar['seminar_name_'.$lang] !!}</h1>
                         <a href="#modal-register" class="button -underline_white article__button"  data-gutter="#modal-register" data-toggle="modal">Регистрация</a>
                         <div class="article__img">

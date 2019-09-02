@@ -344,6 +344,23 @@ class Helpers {
         return $day .' '.Helpers::getMonthName($month);
     }
 
+    public static function getDateFormat3($date_param){
+        $current = strtotime(date("Y-m-d"));
+        $date    = strtotime($date_param);
+        $datediff = $date - $current;
+        $difference = floor($datediff/(60*60*24));
+
+        $timestamp = strtotime($date_param);
+        $time_format = date("H:i", $timestamp);
+        $date_format = date("d.m.Y", $timestamp);
+
+
+        $month = date("m", $timestamp);
+        $day = date("d", $timestamp);
+        $year = date("Y", $timestamp);
+        return $day .' '.Helpers::getMonthName($month).', '.$year;
+    }
+
     public static function getDateFormat($date_param){
         $current = strtotime(date("Y-m-d"));
         $date    = strtotime($date_param);
