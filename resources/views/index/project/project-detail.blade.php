@@ -43,7 +43,7 @@
 
                 <article class="article">
                     <header class="article__header">
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($project->project_date)}}</div>
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat3($project->project_date)}}</div>
                         <h1 class="article__title"> {!! $project['project_name_'.$lang] !!}</h1>
                     </header>
                     <div class="article__body">

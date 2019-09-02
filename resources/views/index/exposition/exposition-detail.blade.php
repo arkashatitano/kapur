@@ -43,7 +43,7 @@
 
                 <article class="article">
                     <header class="article__header">
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($exposition->exposition_date)}}</div>
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat3($exposition->exposition_date)}}</div>
                         <h1 class="article__title"> {!! $exposition['exposition_name_'.$lang] !!}</h1>
                     </header>
                     <div class="article__body">

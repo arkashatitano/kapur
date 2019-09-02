@@ -43,7 +43,7 @@
 
                 <article class="article">
                     <header class="article__header -seminar">
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($news->news_date)}}</div>
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat3($news->news_date)}}</div>
                         <h1 class="article__title">{!! $news['news_name_'.$lang] !!}</h1>
                         <div class="article__img">
                             <img src="{{$news['news_image']}}" alt="">

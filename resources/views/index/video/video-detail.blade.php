@@ -43,7 +43,7 @@
 
                 <article class="article">
                     <header class="article__header">
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($video->video_date)}}</div>
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat3($video->video_date)}}</div>
                         <h1 class="article__title"> {!! $video['video_name_'.$lang] !!}</h1>
                     </header>
                     <div class="article__body">

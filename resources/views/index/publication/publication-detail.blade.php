@@ -44,7 +44,7 @@
                 <article class="article @if($publication->publication_price > 0 && $is_payed == 0) -demo @endif">
                     <header class="article__header -seminar">
                         <input type="hidden" value="{{$publication->publication_id}}" id="publication_id"/>
-                        <div class="article__date">{{\App\Http\Helpers::getDateFormat($publication->publication_date)}}</div>
+                        <div class="article__date">{{\App\Http\Helpers::getDateFormat3($publication->publication_date)}}</div>
                         <h1 class="article__title">{!! $publication['publication_name_'.$lang] !!}</h1>
 
                         @if($publication->publication_price > 0 && $is_payed == 0)
