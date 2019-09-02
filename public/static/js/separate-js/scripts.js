@@ -25,7 +25,7 @@ $(function() {
     |--------------------------------------------------------------------------
     */
 
-    let iframeModal = document.getElementById('iframe-modal');
+   /* let iframeModal = document.getElementById('iframe-modal');
     let iframeModalItem = iframeModal.querySelector('.jsBmEmbedItem');
 
     document.addEventListener('click', function(e){
@@ -45,7 +45,7 @@ $(function() {
                 iframeModalItem.setAttribute("src", "");
             });
         }
-    });
+    });*/
 
     /*
     |--------------------------------------------------------------------------
