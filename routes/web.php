@@ -96,6 +96,8 @@ Route::group([
     'middleware' => 'web'
 ], function() {
     Route::post('image/upload', 'ImageController@uploadImage');
+    Route::post('image/upload/base', 'ImageController@uploadImageBase');
+    Route::get('image/set-image', 'ImageController@getImageModal');
     Route::post('image/upload/file', 'ImageController@uploadFile');
     Route::get('media/{file_name}', 'ImageController@getImage')->where('file_name', '.*');
     Route::get('file/{file_name}', 'ImageController@showFile')->where('file_name','.*');

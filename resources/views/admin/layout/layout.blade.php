@@ -138,12 +138,15 @@
 {{--<script src="/admin/js/dashboard1.js"></script>--}}
 <script src="/admin/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 
-
 <script type="text/javascript" src="/custom/wysiwyg/kindeditor.js?v=5"></script>
 <script type="text/javascript" src="/custom/wysiwyg/ru_Ru.js"></script>
 <script type="text/javascript" src="/custom/js/jquery.gritter.js"></script>
 
-<script src="/custom/js/admin.js?v=14"></script>
+<script src="/custom/tinymce/tinymce.min.js"></script>
+<script src="/custom/tinymce/jquery.tinymce.min.js"></script>
+<script src="/custom/tinymce/css/modal_uploadimage.css"></script>
+
+<script src="/custom/js/admin.js?v=15"></script>
 
 @yield('js')
 

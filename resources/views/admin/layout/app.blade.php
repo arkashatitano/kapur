@@ -38,12 +38,13 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <link rel="stylesheet" href="/custom/css/admin-custom.css?v=6">
+  <link rel="stylesheet" href="/custom/css/admin-custom.css?v=7">
   <link rel="stylesheet" href="/custom/css/bootstrap-select.css">
   <link rel="stylesheet" href="/custom/wysiwyg/default.css" />
   <link rel="stylesheet" href="/custom/css/jquery.gritter.css?v=1">
 
   <link rel="stylesheet" href="/css/cropper.css">
+  <link rel="stylesheet" type="text/css" id="u0" href="/custom/tinymce/skins/lightgray/skin.min.css">
   <link rel="stylesheet" href="/css/main.css">
 
 </head>

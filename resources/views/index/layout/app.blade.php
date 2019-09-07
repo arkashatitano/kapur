@@ -15,7 +15,6 @@
     <link href="/static/css/separate-css/custom.css?v=1" rel="stylesheet" type="text/css">
 
 
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 

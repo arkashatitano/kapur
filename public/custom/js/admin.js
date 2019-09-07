@@ -21,7 +21,7 @@ function showMessage(message){
 }
 
 
-KindEditor.ready(function(K) {
+/*KindEditor.ready(function(K) {
     K.create('.text_editor', {
 
         cssPath : [''],
@@ -74,7 +74,7 @@ KindEditor.ready(function(K) {
     var editor = K.editor({
         allowFileManager : true
     });
-});
+});*/
 
 /*$('.datetimepicker-input').datetimepicker({
     format: 'DD.MM.YYYY HH:mm'
@@ -540,3 +540,78 @@ function deleteMultipleFile(ob){
 $(".complex-colorpicker").asColorPicker({
     mode: 'complex'
 });
+
+$(function () {
+    tinymce.init({
+        selector: '.text_editor',
+        plugins: [
+            "link image lists charmap preview hr anchor pagebreak autosave",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+            "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
+        ],
+        toolbar1: "undo redo | table | bullist numlist | formatselect  hr removeformat | charmap emoticons | fullscreen code",
+        toolbar2: "bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | link unlink | qimage  media  | egemenbutton | quotation | bank",
+        contextmenu: "cut copy paste link",
+        content_css: "/custom/tinymce/style.css",
+        autosave_ask_before_unload: false,
+        media_filter_html: false,
+        relative_urls: false,
+        elementpath: false,
+        convert_fonts_to_spans: true,
+        paste_remove_styles: true,
+        menu: {},
+        menubar: false,
+        statusbar: false,
+        branding: false,
+        extended_valid_elements: "iframe[name|src|style|class|framespacing|border|frameborder|scrolling|title|height|width],\
+                    audio[*]",
+        schema: "html5",
+        setup: function (editor) {
+            editor.addButton('qimage', {
+                icon: 'mce-ico mce-i-image',
+                tooltip: "Загрузить фото",
+                onclick: function () {
+                    showSetImageModal("/image/set-image?callback=setEditorImagelUrl", "");
+                }
+            });
+        }
+    });
+});
+
+function showSetImageModal(modal_url, modal_width) {
+    modal_url = encodeURI(modal_url);
+    $("#image-modal").remove();
+    var modal = $('<div id="image-modal" class="modal fade" tabindex="-1" role="dialog">\
+                                <div class="modal-dialog" role="document" style="width:' + modal_width + '">\
+                                    <div class="modal-content">\
+                                    </div>\
+                                </div>\
+                        </div>').modal();
+    $('body').append(modal);
+    modal.find('.modal-content')
+        .load(modal_url, function (responseText, textStatus) {
+            if (textStatus === 'success' ||
+                textStatus === 'notmodified') {
+                modal.show();
+                if ($(window).width() < 768) {
+                    modal.find(".modal-dialog").css("width", "");
+                }
+            }
+        });
+    modal.on('hidden.bs.modal', function (e) {
+        $("#image-modal").remove();
+    })
+}
+$(function () {
+    $('a[rel="image-modal"]').on('click', function (e) {
+        var modal_url = $(this).attr('href'),
+            modal_width = !!$(this).attr('data-width') ? $(this).attr('data-width') : '';
+        showSetImageModal(modal_url, modal_width);
+        e.preventDefault();
+    });
+})
+
+function setEditorImagelUrl(data) {
+    data = $.parseJSON(data);
+    tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />');
+}

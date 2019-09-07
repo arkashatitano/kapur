@@ -387,3 +387,6 @@ input[type="checkbox"], input[type="radio"] {
     margin-top: -23px !important;
     right: 30px;
 }
+.text_editor {
+    height: 400px !important;
+}

@@ -185,5 +185,39 @@ class ImageController extends Controller
         return $response;
     }
 
+    public function getImageModal(Request $request){
+        return  view('admin.addon.image-modal');
+    }
 
+    public function uploadImageBase(Request $request){
+        $file = $request->file;
+        $file_name = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+
+        if(substr($file->getClientMimeType(), 0, 5) != 'image') {
+            $result['error'] = 'Загружайте только файлы форматов JPEG, PNG';
+            $result['success'] = false;
+            return $result;
+        }
+        else if($file->getClientSize() > 2097152){
+            $result['error'] = 'Максимальный размер загружаемого файла ~ 2 МБ';
+            $result['success'] = false;
+            return $result;
+        }
+        $destinationPath = $request->disk. '/'.date('Y').'/'.date('m').'/'.date('d');
+
+        $file_name = $destinationPath .'/' .\App\Http\Helpers::getTranslatedImage($file_name);
+
+        if(Storage::disk('image')->exists($file_name)){
+            $now = \DateTime::createFromFormat('U.u', microtime(true));
+            $file_name = $destinationPath .'/' .$now->format("Hisu").'.'.$extension;
+        }
+
+        Storage::disk('image')->put($file_name,  File::get($file));
+        $result['status'] = "success";
+        $result['data']['url'] = '/media' .$file_name;
+        $result['data']['title'] = $request->title;
+        $result['data']['copyright'] = $request->copyright;
+        return $result;
+    }
 }
