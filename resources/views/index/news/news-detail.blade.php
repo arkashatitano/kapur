@@ -44,7 +44,7 @@
                 <article class="article">
                     <header class="article__header -seminar">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat3($news->news_date)}}</div>
-                        <h1 class="article__title" @if($news['text_color']) style="background-color:{{$news['text_color']}}" @endif>{!! $news['news_name_'.$lang] !!}</h1>
+                        <h1 class="article__title" @if($news['text_color']) style="color:{{$news['text_color']}}" @endif>{!! $news['news_name_'.$lang] !!}</h1>
                         <div class="article__img">
                             <img src="{{$news['news_image']}}" alt="">
                         </div>
