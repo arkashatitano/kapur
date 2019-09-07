@@ -117,7 +117,7 @@
                 var dropZone = new Dropzone("div#drop-zone",
                         { url: "/image/upload/base",
                             method: "POST",
-                            acceptedFiles:"*",
+                            acceptedFiles:"image/*",
                             autoProcessQueue: false,
                             maxFiles:1,
                             paramName: "file",
