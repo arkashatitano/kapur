@@ -44,7 +44,6 @@
   <link rel="stylesheet" href="/custom/css/jquery.gritter.css?v=1">
 
   <link rel="stylesheet" href="/css/cropper.css">
-  <link rel="stylesheet" type="text/css" id="u0" href="/custom/tinymce/skins/lightgray/skin.min.css">
   <link rel="stylesheet" href="/css/main.css">
 
 </head>
