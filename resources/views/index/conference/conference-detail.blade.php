@@ -44,7 +44,7 @@
                 <article class="article">
                     <header class="article__header">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat3($conference->conference_date)}}</div>
-                        <h1 class="article__title"> {!! $conference['conference_name_'.$lang] !!}</h1>
+                        <h1 class="article__title" @if($conference['text_color'] != '') style="color:{{$conference['text_color']}}" @endif> {!! $conference['conference_name_'.$lang] !!}</h1>
                     </header>
                     <div class="article__body">
                         <div class="row">

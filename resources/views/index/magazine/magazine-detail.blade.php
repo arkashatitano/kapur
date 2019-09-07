@@ -44,7 +44,7 @@
                 <article class="article">
                     <header class="article__header -magazine">
                         <div class="article__date">{!! $magazine['magazine_number'] !!}</div>
-                        <h1 class="article__title">{!! $magazine['magazine_name_'.$lang] !!}</h1>
+                        <h1 class="article__title" @if($magazine['text_color'] != '') style="color:{{$magazine['text_color']}}" @endif>{!! $magazine['magazine_name_'.$lang] !!}</h1>
 
                         @if($magazine->magazine_price > 0)
                             <a href="#modal-pay" class="button -underline_white article__button" data-gutter="#modal-pay" data-toggle="modal">Купить журнал</a>

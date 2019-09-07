@@ -44,7 +44,7 @@
                 <article class="article">
                     <header class="article__header">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat3($exposition->exposition_date)}}</div>
-                        <h1 class="article__title"> {!! $exposition['exposition_name_'.$lang] !!}</h1>
+                        <h1 class="article__title" @if($exposition['text_color'] != '') style="color:{{$exposition['text_color']}}" @endif> {!! $exposition['exposition_name_'.$lang] !!}</h1>
                     </header>
                     <div class="article__body">
                         <div class="row">
