@@ -175,24 +175,7 @@
         })
 
         function setEditorImagelUrl(data) {
-
-/*            var content = tinyMCE.activeEditor.getContent();
-
-            content = content + '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />';
-
-            tinyMCE.activeEditor.setContent( content );*/
-
             data = $.parseJSON(data);
-           // tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />');
-           // console.log(data);
-
-            var content = tinyMCE.activeEditor.getContent();
-
-            content = content + '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />';
-
-            tinyMCE.activeEditor.setContent( content );
-            tinyMCE.activeEditor.setContent( content );
-            console.log(content);
-
+            tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />');
         }
     </script></div>
