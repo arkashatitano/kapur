@@ -100,6 +100,7 @@ class ExpositionController extends Controller
 
         $timestamp = strtotime($request->exposition_date);
         $exposition->exposition_date = date("Y-m-d H:i", $timestamp);
+        $exposition->text_color = $request->text_color;
 
         $exposition->save();
 
@@ -176,6 +177,7 @@ class ExpositionController extends Controller
 
         $timestamp = strtotime($request->exposition_date);
         $exposition->exposition_date = date("Y-m-d H:i", $timestamp);
+        $exposition->text_color = $request->text_color;
 
         $exposition->exposition_url_ru = '/exposition/'.$exposition->exposition_id.'-'.Helpers::getTranslatedSlugRu($exposition->exposition_name_ru);
         $exposition->exposition_url_kz = '/exposition/'.$exposition->exposition_id.'-'.Helpers::getTranslatedSlugRu($exposition->exposition_name_kz);

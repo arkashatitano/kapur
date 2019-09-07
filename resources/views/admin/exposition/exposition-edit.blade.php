@@ -113,6 +113,10 @@
                                                 <label>Дата</label>
                                                 <input id="date-format" value="{{ $row->exposition_date }}" type="text" class="form-control datetimepicker-input" name="exposition_date" placeholder="">
                                             </div>
+                                            <div class="form-group">
+                                                <label>Цвет текста заголовка</label><br/>
+                                                <input value="{{ $row->text_color }}" type="text" class="form-control complex-colorpicker" name="text_color" placeholder="">
+                                            </div>
                                         </div>
                                         <div class="box-footer">
                                             <button type="submit" class="btn btn-primary">Сохранить</button>

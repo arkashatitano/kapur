@@ -102,7 +102,7 @@ class NewsController extends Controller
 
         $timestamp = strtotime($request->news_date);
         $news->news_date = date("Y-m-d H:i", $timestamp);
-
+        $news->text_color = $request->text_color;
         $news->save();
 
         $news->news_url_ru = '/news/'.$news->news_id.'-'.Helpers::getTranslatedSlugRu($news->news_name_ru);
@@ -180,7 +180,7 @@ class NewsController extends Controller
 
         $timestamp = strtotime($request->news_date);
         $news->news_date = date("Y-m-d H:i", $timestamp);
-
+        $news->text_color = $request->text_color;
         $news->news_url_ru = '/news/'.$news->news_id.'-'.Helpers::getTranslatedSlugRu($news->news_name_ru);
         $news->news_url_kz = '/news/'.$news->news_id.'-'.Helpers::getTranslatedSlugRu($news->news_name_kz);
         $news->news_url_en = '/news/'.$news->news_id.'-'.Helpers::getTranslatedSlugRu($news->news_name_en);

@@ -103,7 +103,7 @@ class SeminarController extends Controller
 
         $timestamp = strtotime($request->seminar_date);
         $seminar->seminar_date = date("Y-m-d H:i", $timestamp);
-
+        $seminar->text_color = $request->text_color;
         $seminar->save();
 
         $seminar->seminar_url_ru = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_ru);
@@ -198,7 +198,7 @@ class SeminarController extends Controller
 
         $timestamp = strtotime($request->seminar_date);
         $seminar->seminar_date = date("Y-m-d H:i", $timestamp);
-
+        $seminar->text_color = $request->text_color;
         $seminar->seminar_url_ru = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_ru);
         $seminar->seminar_url_kz = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_kz);
         $seminar->seminar_url_en = '/seminar/'.$seminar->seminar_id.'-'.Helpers::getTranslatedSlugRu($seminar->seminar_name_en);

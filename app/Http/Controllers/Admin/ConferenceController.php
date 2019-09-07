@@ -95,6 +95,7 @@ class ConferenceController extends Controller
         
         $conference->conference_image = $request->conference_image;
         $conference->conference_pdf = $request->conference_pdf;
+        $conference->text_color = $request->text_color;
         $conference->user_id = Auth::user()->user_id;
         $conference->is_show = 1;
 
@@ -176,6 +177,7 @@ class ConferenceController extends Controller
 
         $timestamp = strtotime($request->conference_date);
         $conference->conference_date = date("Y-m-d H:i", $timestamp);
+        $conference->text_color = $request->text_color;
 
         $conference->conference_url_ru = '/conference/'.$conference->conference_id.'-'.Helpers::getTranslatedSlugRu($conference->conference_name_ru);
         $conference->conference_url_kz = '/conference/'.$conference->conference_id.'-'.Helpers::getTranslatedSlugRu($conference->conference_name_kz);

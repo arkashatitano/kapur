@@ -103,7 +103,7 @@ class VideoController extends Controller
 
         $timestamp = strtotime($request->video_date);
         $video->video_date = date("Y-m-d H:i", $timestamp);
-
+        $video->text_color = $request->text_color;
         $video->save();
 
         $video->video_url_ru = '/video/'.$video->video_id.'-'.Helpers::getTranslatedSlugRu($video->video_name_ru);
@@ -182,6 +182,7 @@ class VideoController extends Controller
 
         $timestamp = strtotime($request->video_date);
         $video->video_date = date("Y-m-d H:i", $timestamp);
+        $video->text_color = $request->text_color;
 
         $video->video_url_ru = '/video/'.$video->video_id.'-'.Helpers::getTranslatedSlugRu($video->video_name_ru);
         $video->video_url_kz = '/video/'.$video->video_id.'-'.Helpers::getTranslatedSlugRu($video->video_name_kz);

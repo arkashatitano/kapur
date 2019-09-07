@@ -115,6 +115,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label>цвет текста заголовка</label><br/>
+                                                <input value="{{ $row->text_color }}" type="text" class="form-control complex-colorpicker" name="text_color" placeholder="">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Дата</label>
                                                 <input id="date-format" value="{{ $row->news_date }}" type="text" class="form-control datetimepicker-input" name="news_date" placeholder="">
                                             </div>

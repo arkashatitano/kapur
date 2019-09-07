@@ -536,3 +536,7 @@ function deleteMultipleFile(ob){
         $(ob).closest('.multiple-file').remove();
     }
 }
+
+$(".complex-colorpicker").asColorPicker({
+    mode: 'complex'
+});

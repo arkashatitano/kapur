@@ -100,7 +100,7 @@ class ProjectController extends Controller
 
         $timestamp = strtotime($request->project_date);
         $project->project_date = date("Y-m-d H:i", $timestamp);
-
+        $project->text_color = $request->text_color;
         $project->save();
 
         $project->project_url_ru = '/project/'.$project->project_id.'-'.Helpers::getTranslatedSlugRu($project->project_name_ru);
@@ -176,7 +176,7 @@ class ProjectController extends Controller
 
         $timestamp = strtotime($request->project_date);
         $project->project_date = date("Y-m-d H:i", $timestamp);
-
+        $project->text_color = $request->text_color;
         $project->project_url_ru = '/project/'.$project->project_id.'-'.Helpers::getTranslatedSlugRu($project->project_name_ru);
         $project->project_url_kz = '/project/'.$project->project_id.'-'.Helpers::getTranslatedSlugRu($project->project_name_kz);
         $project->project_url_en = '/project/'.$project->project_id.'-'.Helpers::getTranslatedSlugRu($project->project_name_en);

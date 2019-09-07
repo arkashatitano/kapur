@@ -123,6 +123,11 @@
 <script src="/admin/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
 
 <script src="/admin/assets/plugins/moment/moment.js"></script>
+
+<script src="/admin//assets/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+<script src="/admin//assets/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+<script src="/admin//assets/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+
 <script src="/admin/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 <script src="/admin/assets/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js" type="text/javascript"></script>
 
@@ -138,9 +143,10 @@
 <script type="text/javascript" src="/custom/wysiwyg/ru_Ru.js"></script>
 <script type="text/javascript" src="/custom/js/jquery.gritter.js"></script>
 
-<script src="/custom/js/admin.js?v=13"></script>
+<script src="/custom/js/admin.js?v=14"></script>
 
 @yield('js')
+
 
 </body>
 

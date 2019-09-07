@@ -18,6 +18,7 @@
   <link href="/admin/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
   <link href="/admin/assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
   <link href="/admin/assets/plugins/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+  <link href="/admin/assets/plugins/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
   <!-- chartist CSS -->
   <link href="/admin/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
   <link href="/admin/assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">

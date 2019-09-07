@@ -109,7 +109,7 @@ class PublicationController extends Controller
 
         $timestamp = strtotime($request->publication_date);
         $publication->publication_date = date("Y-m-d H:i", $timestamp);
-
+        $publication->text_color = $request->text_color;
         $publication->save();
 
         $publication->publication_url_ru = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_ru);
@@ -206,7 +206,7 @@ class PublicationController extends Controller
         
         $timestamp = strtotime($request->publication_date);
         $publication->publication_date = date("Y-m-d H:i", $timestamp);
-
+        $publication->text_color = $request->text_color;
         $publication->publication_url_ru = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_ru);
         $publication->publication_url_kz = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_kz);
         $publication->publication_url_en = '/article/'.$publication->publication_id.'-'.Helpers::getTranslatedSlugRu($publication->publication_name_en);

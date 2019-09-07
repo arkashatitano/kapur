@@ -108,7 +108,7 @@ class MagazineController extends Controller
 
         $timestamp = strtotime($request->magazine_date);
         $magazine->magazine_date = date("Y-m-d H:i", $timestamp);
-
+        $magazine->text_color = $request->text_color;
         $magazine->save();
 
         $magazine->magazine_url_ru = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_ru);
@@ -208,7 +208,7 @@ class MagazineController extends Controller
 
         $timestamp = strtotime($request->magazine_date);
         $magazine->magazine_date = date("Y-m-d H:i", $timestamp);
-
+        $magazine->text_color = $request->text_color;
         $magazine->magazine_url_ru = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_ru);
         $magazine->magazine_url_kz = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_kz);
         $magazine->magazine_url_en = '/magazine/'.$magazine->magazine_id.'-'.Helpers::getTranslatedSlugRu($magazine->magazine_name_en);
