@@ -1,6 +1,7 @@
 <div class="modal-content"><script>
         $("head").append($('<link href="/custom/tinymce/css/basic.min.css" rel="stylesheet">'))
-                .append($('<link href="/custom/tinymce/css/dropzone.min.css" rel="stylesheet">'));
+                .append($('<link href="/custom/tinymce/css/dropzone.min.css" rel="stylesheet">'))
+                .append($('<link href="/custom/tinymce/css/modal_uploadimage.css" rel="stylesheet">'));
     </script>
     <div class="modal-uploadimage">
         <div class="modal-header modal-thumbnail" style="display: block">
