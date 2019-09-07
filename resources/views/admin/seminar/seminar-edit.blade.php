@@ -50,7 +50,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="seminar_text_ru" name="seminar_text_ru" class="ckeditor form-control text_editor"><?=$row->seminar_text_ru?></textarea>
+                                                            <textarea id="text_editor" name="seminar_text_ru" class="ckeditor form-control text_editor"><?=$row->seminar_text_ru?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Дополнительная информация</label>
@@ -74,7 +74,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="seminar_text_kz" name="seminar_text_kz" class="ckeditor form-control text_editor"><?=$row->seminar_text_kz?></textarea>
+                                                            <textarea id="text_editor2" name="seminar_text_kz" class="ckeditor form-control text_editor"><?=$row->seminar_text_kz?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Дополнительная информация</label>
@@ -98,7 +98,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="seminar_text_en" name="seminar_text_en" class="ckeditor form-control text_editor"><?=$row->seminar_text_en?></textarea>
+                                                            <textarea id="text_editor3" name="seminar_text_en" class="ckeditor form-control text_editor"><?=$row->seminar_text_en?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Дополнительная информация</label>

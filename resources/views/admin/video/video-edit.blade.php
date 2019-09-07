@@ -49,7 +49,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="video_text_ru" name="video_text_ru" class="ckeditor form-control text_editor"><?=$row->video_text_ru?></textarea>
+                                                            <textarea id="text_editor" name="video_text_ru" class="ckeditor form-control text_editor"><?=$row->video_text_ru?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Тег (через запятую)</label>
@@ -73,7 +73,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="video_text_kz" name="video_text_kz" class="ckeditor form-control text_editor"><?=$row->video_text_kz?></textarea>
+                                                            <textarea id="text_editor2" name="video_text_kz" class="ckeditor form-control text_editor"><?=$row->video_text_kz?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Тег (через запятую)</label>
@@ -97,7 +97,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="video_text_en" name="video_text_en" class="ckeditor form-control text_editor"><?=$row->video_text_en?></textarea>
+                                                            <textarea id="text_editor3" name="video_text_en" class="ckeditor form-control text_editor"><?=$row->video_text_en?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Тег (через запятую)</label>

@@ -50,7 +50,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="review_text_ru" name="review_text_ru" class="ckeditor form-control text_editor"><?=$row->review_text_ru?></textarea>
+                                                            <textarea id="text_editor" name="review_text_ru" class="ckeditor form-control text_editor"><?=$row->review_text_ru?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Meta SEO description </label>
@@ -70,7 +70,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="review_text_kz" name="review_text_kz" class="ckeditor form-control text_editor"><?=$row->review_text_kz?></textarea>
+                                                            <textarea id="text_editor2" name="review_text_kz" class="ckeditor form-control text_editor"><?=$row->review_text_kz?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Meta SEO description </label>
@@ -90,7 +90,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="review_text_en" name="review_text_en" class="ckeditor form-control text_editor"><?=$row->review_text_en?></textarea>
+                                                            <textarea id="text_editor3" name="review_text_en" class="ckeditor form-control text_editor"><?=$row->review_text_en?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Meta SEO description </label>

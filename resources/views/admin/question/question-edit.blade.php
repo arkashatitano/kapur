@@ -48,7 +48,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Ответ</label>
-                                                            <textarea name="question_text_ru" class="ckeditor form-control text_editor"><?=$row->question_text_ru?></textarea>
+                                                            <textarea id="text_editor" class="ckeditor form-control text_editor"><?=$row->question_text_ru?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -60,7 +60,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Ответ</label>
-                                                            <textarea name="question_text_kz" class="ckeditor form-control text_editor"><?=$row->question_text_kz?></textarea>
+                                                            <textarea id="text_editor2" class="ckeditor form-control text_editor"><?=$row->question_text_kz?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -72,7 +72,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Ответ</label>
-                                                            <textarea name="question_text_en" class="ckeditor form-control text_editor"><?=$row->question_text_en?></textarea>
+                                                            <textarea id="text_editor3" class="ckeditor form-control text_editor"><?=$row->question_text_en?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

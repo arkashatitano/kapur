@@ -51,7 +51,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="expert_text_ru" name="expert_text_ru" class="ckeditor form-control text_editor"><?=$row->expert_text_ru?></textarea>
+                                                            <textarea id="text_editor" name="expert_text_ru" class="ckeditor form-control text_editor"><?=$row->expert_text_ru?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -63,7 +63,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="expert_text_kz" name="expert_text_kz" class="ckeditor form-control text_editor"><?=$row->expert_text_kz?></textarea>
+                                                            <textarea id="text_editor2" name="expert_text_kz" class="ckeditor form-control text_editor"><?=$row->expert_text_kz?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -75,7 +75,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="expert_text_en" name="expert_text_en" class="ckeditor form-control text_editor"><?=$row->expert_text_en?></textarea>
+                                                            <textarea id="text_editor3" name="expert_text_en" class="ckeditor form-control text_editor"><?=$row->expert_text_en?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

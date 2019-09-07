@@ -50,7 +50,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="project_text_ru" name="project_text_ru" class="ckeditor form-control text_editor"><?=$row->project_text_ru?></textarea>
+                                                            <textarea id="text_editor" name="project_text_ru" class="ckeditor form-control text_editor"><?=$row->project_text_ru?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Meta SEO description </label>
@@ -70,7 +70,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="project_text_kz" name="project_text_kz" class="ckeditor form-control text_editor"><?=$row->project_text_kz?></textarea>
+                                                            <textarea id="text_editor2" name="project_text_kz" class="ckeditor form-control text_editor"><?=$row->project_text_kz?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Meta SEO description </label>
@@ -90,7 +90,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="project_text_en" name="project_text_en" class="ckeditor form-control text_editor"><?=$row->project_text_en?></textarea>
+                                                            <textarea id="text_editor3" name="project_text_en" class="ckeditor form-control text_editor"><?=$row->project_text_en?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Meta SEO description </label>
