@@ -23,13 +23,13 @@
                             </div>
 
                         </div>
-                        <h4>Немесе құжатты сүйреп әкеліңіз</h4>
+                        <h4></h4>
                         <div class="upload-drop-zone dz-clickable" id="drop-zone">
-                            Сурет құжатын осы арға сүйреп әкеліңіз
+                            Переместите фото сюда
                         </div>
                         <div class="row">
                             <div class="col-md-5">
-                                <input type="text" name="title" id="input_image_title" class="form-control" required="" placeholder="Напишите название фото">
+                                <input type="text" value="фото на kap.kz" name="title" id="input_image_title" class="form-control" required="" placeholder="Напишите название фото">
                             </div>
                             <div class="col-md-5">
                                 <div class="input-group">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2 text-right">
-                                <button type="button" class="btn btn-primary" id="js-upload-submit">Жүктеу</button>
+                                <button type="button" class="btn btn-primary" id="js-upload-submit">Загрузить</button>
                             </div>
                         </div>
                         <input name="__RequestVerificationToken" type="hidden" value="CfDJ8DIOsG7ZqfdEnILuRHnYeS6bX3Bb9n_GIciVgMquObY3QmkwaYPHpkUXeKIalrkG0Q7QtnDhwjZu7zg1GbUYPyiQ5aeolJ97Mom36q9Juas2Q-iPjhPtv6bXBX-ssCKeFFXeM1IRhd_QhD4i7L_zpHqzJf_zUtwxNeGtwO8L4q7-5iUBtHB_6unIi2L4rII_Dw"></form>
