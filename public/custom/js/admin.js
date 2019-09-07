@@ -543,7 +543,7 @@ $(".complex-colorpicker").asColorPicker({
 
 $(function () {
     tinymce.init({
-        selector: '.text_editor',
+        selector: 'textarea#text_editor,textarea#text_editor2,textarea#text_editor3,textarea#text_editor4',
         plugins: [
             "link image lists charmap preview hr anchor pagebreak autosave",
             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
