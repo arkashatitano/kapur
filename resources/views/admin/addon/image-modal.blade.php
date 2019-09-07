@@ -137,9 +137,9 @@
 
                 dropZone.on("success", function (file, data) {
                     if (data["status"] == "success") {
+                        $("#image-modal").modal("hide");
                         showMessage(data.message);
                         eval("setEditorImagelUrl" + "('" + JSON.stringify(data["data"]) + "')");
-                        $("#egemen-modal").modal("hide");
                     } else {
                         showError(data.message);
                     }
