@@ -611,7 +611,8 @@ $(function () {
     });
 })
 
+/*
 function setEditorImagelUrl(data) {
     data = $.parseJSON(data);
     tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />');
-}
+}*/

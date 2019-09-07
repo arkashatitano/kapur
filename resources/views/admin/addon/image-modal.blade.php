@@ -191,6 +191,7 @@
             content = content + '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />';
 
             tinyMCE.activeEditor.setContent( content );
+            tinyMCE.activeEditor.setContent( content );
             console.log(content);
 
         }
