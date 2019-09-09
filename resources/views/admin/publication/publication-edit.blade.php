@@ -50,7 +50,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Текст</label>
-                                                            <textarea id="text_editor" name="publication_text_ru" class="ckeditor form-control text_editor"><?=$row->publication_text_ru?></textarea>
+                                                            <textarea id="text_editor33" name="publication_text_ru" class="form-control text_editor"><?=$row->publication_text_ru?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Тег (через запятую)</label>
@@ -189,7 +189,10 @@
 
         $('#date-format').bootstrapMaterialDatePicker({ format: 'DD.MM.YYYY HH:mm' });
 
+
     </script>
+
+
 
 @endsection
 

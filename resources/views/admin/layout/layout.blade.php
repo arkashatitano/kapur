@@ -142,11 +142,13 @@
 <script type="text/javascript" src="/custom/wysiwyg/ru_Ru.js"></script>
 <script type="text/javascript" src="/custom/js/jquery.gritter.js"></script>
 
-<script src="/custom/tinymce/tinymce.min.js"></script>
+{{--<script src="/custom/tinymce/tinymce.min.js"></script>
 <script src="/custom/tinymce/jquery.tinymce.min.js"></script>
-<script src="/custom/tinymce/css/modal_uploadimage.css"></script>
+<script src="/custom/tinymce/css/modal_uploadimage.css"></script>--}}
 
-<script src="/custom/js/admin.js?v=15"></script>
+{{--<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=9e18ncm9ydj2gi98xcdd8hnjk8q3zpb3v2pmwqqkcg6v0a39" ></script>--}}
+
+<script src="/custom/js/admin.js?v=16"></script>
 
 @yield('js')
 

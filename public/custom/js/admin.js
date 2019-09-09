@@ -21,7 +21,7 @@ function showMessage(message){
 }
 
 
-/*KindEditor.ready(function(K) {
+KindEditor.ready(function(K) {
     K.create('.text_editor', {
 
         cssPath : [''],
@@ -74,7 +74,7 @@ function showMessage(message){
     var editor = K.editor({
         allowFileManager : true
     });
-});*/
+});
 
 /*$('.datetimepicker-input').datetimepicker({
     format: 'DD.MM.YYYY HH:mm'
@@ -541,7 +541,7 @@ $(".complex-colorpicker").asColorPicker({
     mode: 'complex'
 });
 
-$(function () {
+/*$(function () {
     tinymce.init({
         selector: 'textarea#text_editor,textarea#text_editor2,textarea#text_editor3,textarea#text_editor4',
         plugins: [
@@ -576,8 +576,9 @@ $(function () {
             });
         }
     });
-});
+});*/
 
+/*
 function showSetImageModal(modal_url, modal_width) {
     modal_url = encodeURI(modal_url);
     $("#image-modal").remove();
@@ -610,9 +611,49 @@ $(function () {
         e.preventDefault();
     });
 })
+*/
 
 /*
 function setEditorImagelUrl(data) {
     data = $.parseJSON(data);
     tinymce.activeEditor.execCommand('mceInsertContent', false, '<img src="' + data["url"] + '" alt="' + data["title"] + '" data-copyright="' + data["copyright"]+'" />');
 }*/
+
+
+/*
+tinymce.init({
+    selector: '.text_editor',
+    plugins: 'code image media ',
+    toolbar: 'undo redo | image code media',
+    file_browser_callback_types: 'file image media',
+    images_upload_url: '/upload.php',
+    images_upload_handler: function (blobInfo, success, failure) {
+        var xhr, formData;
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/upload.php');
+
+        xhr.onload = function() {
+            var json;
+
+            if (xhr.status != 200) {
+                failure('HTTP Error: ' + xhr.status);
+                return;
+            }
+
+            json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.location != 'string') {
+                failure('Invalid JSON: ' + xhr.responseText);
+                return;
+            }
+
+            success(json.location);
+        };
+
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+        xhr.send(formData);
+    }
+});*/
