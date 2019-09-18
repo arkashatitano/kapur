@@ -21,7 +21,7 @@
 
 <script src="/custom/js/jquery.js"></script>
 <script src="/static/js/main.min.js?v=1"></script>
-<script src="/static/js/separate-js/scripts.js?v=2"></script>
+<script src="/static/js/separate-js/scripts.js?v=3"></script>
 
 <script src="/custom/js/custom.js?v=19"></script>
 

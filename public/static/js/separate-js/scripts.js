@@ -183,6 +183,7 @@ $(function() {
         speed: 600,
         autoHeight: true, //enable auto height
         mousewheel: false,
+        autoplay: true,
         spaceBetween: 15,
         navigation: {
             nextEl: '.jsPartnersNext',
@@ -209,6 +210,7 @@ $(function() {
         speed: 600,
         autoHeight: true, //enable auto height
         mousewheel: false,
+        autoplay: true,
         spaceBetween: 15,
         navigation: {
             nextEl: '.jsPartnersNext2',
