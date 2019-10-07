@@ -6,7 +6,7 @@
                 <img src="{{$item['magazine_image']}}?width=260&height=360" alt="">
             </a>
             <div class="magazine__issue">{{$item['magazine_number']}}</div>
-            <div class="magazine__text">{{$item['magazine_name_'.$lang]}}</div>
+           {{-- <div class="magazine__text">{{$item['magazine_name_'.$lang]}}</div>--}}
         </div>
     </div>
 
