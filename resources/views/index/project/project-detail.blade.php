@@ -56,7 +56,7 @@
                                 @if($project->project_pdf != '')
 
                                     <div class="article__info">
-                                        <p>Прикрепленные файлы</p>
+                                        <p>Файлы для скачивания</p>
                                         <a target="_blank" href="{{$project->project_pdf}}">Скачать файл</a>
                                     </div>
 

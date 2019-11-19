@@ -38,7 +38,7 @@
         <section class="py-5">
             <div class="container">
                 <div class="section-heading">
-                    <h2 class="section-heading__title">Журналы</h2>
+                    <h2 class="section-heading__title">Наш журнал</h2>
                     <a href="/magazines" class="button -underline section-heading__button">Все журналы</a>
                 </div>
                 <div class="row" data-gutter="15" vertical-gutter="40">

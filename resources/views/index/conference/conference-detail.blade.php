@@ -56,7 +56,7 @@
                                 @if($conference->conference_pdf != '')
 
                                     <div class="article__info">
-                                        <p>Прикрепленные файлы</p>
+                                        <p>Файлы для скачивания</p>
                                         <a target="_blank" href="{{$conference->conference_pdf}}">Скачать файл</a>
                                     </div>
 

@@ -56,7 +56,7 @@
                                 @if($review->review_pdf != '')
 
                                     <div class="article__info">
-                                        <p>Прикрепленные файлы</p>
+                                        <p>Файлы для скачивания</p>
                                         <a target="_blank" href="{{$review->review_pdf}}">Скачать файл</a>
                                     </div>
 

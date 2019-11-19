@@ -51,7 +51,7 @@
                                 @if(isset($document_list) && count($document_list) > 0)
 
                                     <div class="article__info">
-                                        <p>Прикрепленные файлы</p>
+                                        <p>Файлы для скачивания</p>
 
                                         @foreach($document_list as $key => $item)
                                             <div class="mb-10">

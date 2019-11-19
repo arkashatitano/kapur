@@ -43,7 +43,7 @@
       </li>
       <li @if(isset($menu) && $menu == 'magazine') class="active"  @endif>
         <a class="waves-effect waves-dark" href="/admin/magazine" aria-expanded="false">
-          <i class="mdi mdi-bank"></i><span class="hide-menu">Журналы</span>
+          <i class="mdi mdi-bank"></i><span class="hide-menu">Наш журнал</span>
         </a>
       </li>
       <li @if(isset($menu) && $menu == 'publication') class="active"  @endif>
