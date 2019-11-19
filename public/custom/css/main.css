@@ -224,7 +224,7 @@
     text-shadow: 1px 1px 1px black;
 }
 .partners__img {
-    background-image: white !important;
+    background: white !important;
     height: auto !important;
     padding-top: 5px !important;
     padding-bottom: 5px !important;
