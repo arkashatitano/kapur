@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Index;
 
 use App\Http\Helpers;
 use App\Mail\MagazineEmail;
+use App\Mail\OrderEmail;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Comment;
@@ -118,6 +119,15 @@ class MagazineController extends Controller
             $contact->pay_type = 'наличными';
             $contact->is_show = 1;
             $contact->save();
+
+            $magazine = Magazine::where('magazine_id',$request->magazine_id)->first();
+
+            $contact->magazine_name_ru = $magazine->magazine_name_ru;
+            
+            $email = 'arman.abdiyev@gmail.com';
+            $result_email = Mail::to($email)->send(new OrderEmail($contact));
+
+            $result['result_email'] = $result_email;
         }
         elseif($request->pay_type == 'online' || $request->pay_type == 'online_delivery'){
             $validator = Validator::make($request->all(), [
