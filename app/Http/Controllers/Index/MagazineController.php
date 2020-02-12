@@ -124,7 +124,7 @@ class MagazineController extends Controller
 
             $contact->magazine_name_ru = $magazine->magazine_name_ru;
 
-            $email = 'arman.abdiyev@gmail.com';
+            $email = 'kbcsd@kap.kz';
             $result_email = Mail::to($email)->send(new OrderEmail($contact));
 
             $result['result_email'] = $result_email;
@@ -203,6 +203,8 @@ class MagazineController extends Controller
                                 ->where('hash',$hash)
                                 ->first();
 
+                if($order->is_pay == 1) return;
+                
                 $order->is_pay = 1;
                 $order->transaction_number = $request->pg_payment_id;
                 $order->save();
@@ -221,6 +223,11 @@ class MagazineController extends Controller
                                                 ->get();
 
                 $result_email = Mail::to($email)->send(new MagazineEmail($objDemo));
+
+                $order->magazine_name_ru = $magazine->magazine_name_ru;
+
+                $email = 'arman.abdiyev@gmail.com';
+                $result_email = Mail::to($email)->send(new OrderEmail($order));
             }
         }
     }
