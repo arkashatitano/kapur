@@ -84,7 +84,7 @@ class PayboxController extends Controller
             $arrReq['pg_request_method'] = "POST";
       //      $arrReq['pg_payment_system'] = "TEST";
 
-            $arrReq['pg_testing_mode'] = '1';
+            //$arrReq['pg_testing_mode'] = '1';
             $arrReq['pg_success_url_method'] = 'AUTOPOST';
             $arrReq['pg_payment_route'] = 'frame';
 

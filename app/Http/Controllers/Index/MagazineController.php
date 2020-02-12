@@ -204,7 +204,7 @@ class MagazineController extends Controller
                                 ->first();
 
                 if($order->is_pay == 1) return;
-                
+
                 $order->is_pay = 1;
                 $order->transaction_number = $request->pg_payment_id;
                 $order->save();
@@ -226,7 +226,7 @@ class MagazineController extends Controller
 
                 $order->magazine_name_ru = $magazine->magazine_name_ru;
 
-                $email = 'arman.abdiyev@gmail.com';
+                $email = 'kbcsd@kap.kz';
                 $result_email = Mail::to($email)->send(new OrderEmail($order));
             }
         }
