@@ -123,7 +123,7 @@ class MagazineController extends Controller
             $magazine = Magazine::where('magazine_id',$request->magazine_id)->first();
 
             $contact->magazine_name_ru = $magazine->magazine_name_ru;
-            
+
             $email = 'arman.abdiyev@gmail.com';
             $result_email = Mail::to($email)->send(new OrderEmail($contact));
 

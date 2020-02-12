@@ -19,8 +19,8 @@
     <p><b>Стоимость:</b>{{$param->price}}тг</p>
 @endif
 
-@if($val->transaction_number != '' && $val->is_pay == 1)
-    <p style="color: green"><strong>Оплачено, Номер транзакции: </strong>{{$val->transaction_number}}</p>
+@if($param->transaction_number != '' && $param->is_pay == 1)
+    <p style="color: green"><strong>Оплачено, Номер транзакции: </strong>{{$param->transaction_number}}</p>
 @endif
 
 @if($param->comment != '')
