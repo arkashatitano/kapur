@@ -82,6 +82,12 @@ class IndexController extends Controller
                             ->take(4)
                             ->get();
 
+        $news_list = News::where('news.is_show',1)
+                            ->orderBy('news_date','desc')
+                            ->where('news_name_'.$this->lang,'!=','')
+                            ->take(3)
+                            ->get();
+
         return  view('index.index.index',
             [
                 'row' => $request,
@@ -89,6 +95,7 @@ class IndexController extends Controller
                 'partner_list' => $partner_list,
                 'seminar_list' => $seminar_list,
                 'magazine_list' => $magazine_list,
+                'news_list' => $news_list,
                 'slider_list' => $slider_list,
                 'member_list' => $member_list,
             ]);

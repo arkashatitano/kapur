@@ -23,6 +23,19 @@
         <section class="py-5">
             <div class="container">
                 <div class="section-heading">
+                    <h2 class="section-heading__title">Новости</h2>
+                </div>
+                <div class="row" data-gutter="20" vertical-gutter="30">
+                    @include('index.news.news-list-loop')
+                </div>
+            </div>
+        </section>
+        <!--/. Blog End -->
+
+        <!-- Blog Begin -->
+        <section class="py-5">
+            <div class="container">
+                <div class="section-heading">
                     <h2 class="section-heading__title">Повышаем квалификацию</h2>
                 </div>
                 <div class="row" data-gutter="15" vertical-gutter="40">
