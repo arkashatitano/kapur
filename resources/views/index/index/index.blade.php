@@ -20,7 +20,7 @@
         @include('index.index.slider')
 
         <!-- Blog Begin -->
-        <section class="py-5">
+        <section class="">
             <div class="container">
                 <div class="section-heading">
                     <h2 class="section-heading__title">Новости</h2>
