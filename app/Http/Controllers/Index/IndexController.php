@@ -88,6 +88,7 @@ class IndexController extends Controller
                             ->take(3)
                             ->get();
 
+
         return  view('index.index.index',
             [
                 'row' => $request,
