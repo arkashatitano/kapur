@@ -1,27 +1,3 @@
-{{--<div class="modal -wide" tabindex="-1" role="dialog" id="modal-pay">--}}
-{{--    <div class="modal-dialog" role="document">--}}
-{{--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--            <span aria-hidden="true">&#10005;</span>--}}
-{{--        </button>--}}
-{{--        <div class="modal__inner">--}}
-{{--            <form class="register">--}}
-{{--                <a href="https://kap.kz/informatsiya-o-dgurnale" type="button" class="btn btn-success">Подписку на журнал Вы можете оформить</a>--}}
-{{--            </form>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="modal -wide" tabindex="-1" role="dialog" id="modal-pay">
     <div class="modal-dialog" role="document">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

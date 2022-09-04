@@ -87,7 +87,7 @@
                                 @endif
 
                                 @if($magazine->magazine_price > 0)
-                                 <a href="#modal-pay" type="button" class="button -default -md mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-gutter="#modal-pay">@lang('app.buy')</a>
+                                 <a href="#modal-pay" type="button" class="button -default -md mt-4" data-toggle="modal" data-gutter="#modal-pay">@lang('app.buy')</a>
                                 @endif
 
                             </div>
