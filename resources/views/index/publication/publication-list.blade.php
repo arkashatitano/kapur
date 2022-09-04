@@ -34,7 +34,7 @@
                 </header>
 
                 <div class="links">
-                    <a href="/articles" class="links__item @if(!isset($_GET['category'])) -active @endif">все</a>
+                    <a href="/articles" class="links__item @if(!isset($_GET['category'])) -active @endif">@lang('app.all')</a>
 
                     @foreach($category_list as $item)
                         <a href="/articles?category={{$item->category_id}}" class="links__item  @if(isset($_GET['category']) && ($_GET['category'] == $item->category_id)) -active @endif">{{$item['category_name_'.$lang]}}</a>

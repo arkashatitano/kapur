@@ -69,4 +69,14 @@ return [
     'materials' => 'materials',
     'all_events' => 'All events',
     'view_all_publications' => 'View all publications',
+	'legislation_review' => 'Legislation review',
+	'our_projects' => 'Our projects',
+	'training' => 'Training',
+	'our_paper' => '“Ecology & Industry of Kazakhstan” Journal',
+	'view_all' => 'View all',
+	'our_members' => 'Our members',
+	'our_partners' => 'Our partners',
+	'download' => 'Downloads',
+	'registration' => 'Registration',
+	'buy' => 'Buy'
 ];

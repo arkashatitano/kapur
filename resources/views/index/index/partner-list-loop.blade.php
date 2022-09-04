@@ -1,5 +1,5 @@
 <div class="section-heading mt-5">
-    <h2 class="section-heading__title color-white">Партнеры</h2>
+    <h2 class="section-heading__title color-white">@lang('app.our_partners')</h2>
     <div class="partners__controls">
         <div class="partners__prev jsPartnersPrev2"></div>
         <div class="partners__next jsPartnersNext2"></div>

@@ -32,7 +32,7 @@
 
                     @if($menu->parent_name != '')
                         <li class="breadcrumbs__item">
-                            <a href="#" class="breadcrumbs__link"> {{$menu['parent_name']}}</a>
+                            <a href="#" class="breadcrumbs__link">@lang('app.about_us')</a>
                         </li>
                     @endif
 
@@ -42,6 +42,8 @@
                 <article class="article">
                     <header class="article__header1">
                         <h1 class="page__header-title">{{$menu['menu_name_'.$lang]}}</h1>
+                        @if()
+                        @endif
                     </header>
                     <div class="article__body">
                         <div class="row" data-gutter="50">
@@ -51,7 +53,7 @@
                                 @if(isset($document_list) && count($document_list) > 0)
 
                                     <div class="article__info">
-                                        <p>Файлы для скачивания</p>
+                                        <p>@lang('app.download')</p>
 
                                         @foreach($document_list as $key => $item)
                                             <div class="mb-10">

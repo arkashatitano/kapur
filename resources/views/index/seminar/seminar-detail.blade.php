@@ -45,7 +45,7 @@
                     <header class="article__header -seminar">
                         <div class="article__date">{{\App\Http\Helpers::getDateFormat3($seminar->seminar_date)}}</div>
                         <h1 class="article__title" @if($seminar['text_color'] != '') style="color:{{$seminar['text_color']}}" @endif>{!! $seminar['seminar_name_'.$lang] !!}</h1>
-                        <a href="#modal-register" class="button -underline_white article__button"  data-gutter="#modal-register" data-toggle="modal">Регистрация</a>
+                        <a href="#modal-register" class="button -underline_white article__button"  data-gutter="#modal-register" data-toggle="modal">@lang('app.registration')</a>
                         <div class="article__img">
                             <img src="{{$seminar['seminar_image']}}" alt="">
                         </div>
@@ -58,7 +58,7 @@
                                 @if(isset($document_list) && count($document_list) > 0)
 
                                     <div class="article__info mb-20">
-                                        <p>Файлы для скачивания</p>
+                                        <p>@lang('app.download')</p>
 
                                         @foreach($document_list as $key => $item)
 
@@ -107,7 +107,7 @@
 
                                 @endif
 
-                                <a href="#modal-register" class="button -default -md mt-4" data-gutter="#modal-register" data-toggle="modal">Регистрация</a>
+                                <a href="#modal-register" class="button -default -md mt-4" data-gutter="#modal-register" data-toggle="modal">@lang('app.registration')</a>
 
 
                             </div>

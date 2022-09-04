@@ -70,5 +70,14 @@ return [
     'materials' => 'материалдар',
     'all_events' => 'Барлық оқиғалар',
     'view_all_publications' => 'Барлық жариялауларды көру',
-    
+	'legislation_review' => 'Заңнамалық жаңалықтар',
+	'our_projects' => 'Біздің жобалар',
+	'training' => 'Семинарлар',
+	'our_paper' => 'Біздің журнал',
+	'view_all' => 'Барлық журналдар',
+	'our_members' => 'Қауымдастық мүшелері',
+	'our_partners' => 'Серіктестер',
+	'download' => 'Жүктеу',
+	'registration' => 'Тіркеу',
+	'buy' => 'Сатып алу'
 ];

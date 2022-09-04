@@ -1,5 +1,5 @@
 <div class="section-heading">
-    <h2 class="section-heading__title color-white">Члены ассоциации</h2>
+    <h2 class="section-heading__title color-white">@lang('app.our_members')</h2>
     <div class="partners__controls">
         <div class="partners__prev jsPartnersPrev"></div>
         <div class="partners__next jsPartnersNext"></div>
