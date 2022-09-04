@@ -11,7 +11,7 @@
                                 <div class="swiper-slide">
                                     <h1 class="entry__title">{{$item['slider_name_'.$lang]}}</h1>
                                     <div class="entry__text">{{$item['slider_text_'.$lang]}}</div>
-                                    <a href="{{$item['slider_redirect']}}" class="button -underline_white entry__button">Подробнее</a>
+                                    <a href="{{$item['slider_redirect']}}" class="button -underline_white entry__button">@lang('app.read_more')</a>
                                 </div>
 
                             @endforeach

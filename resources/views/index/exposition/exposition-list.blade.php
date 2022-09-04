@@ -26,7 +26,7 @@
                     <li class="breadcrumbs__item">
                         <a href="/" class="breadcrumbs__link">{{Lang::get('app.homepage')}}</a>
                     </li>
-                    <li class="breadcrumbs__item -active">{{$menu['menu_name_'.$lang]}}</li>
+                    <li class="breadcrumbs__item -active">@lang('app.about_us')</li>
                 </ul>
 
                 <header class="page__header">

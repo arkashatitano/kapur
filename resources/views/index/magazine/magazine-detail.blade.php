@@ -47,7 +47,7 @@
                         <h1 class="article__title" @if($magazine['text_color'] != '') style="color:{{$magazine['text_color']}}" @endif>{!! $magazine['magazine_name_'.$lang] !!}</h1>
 
                         @if($magazine->magazine_price > 0)
-                            <a href="#modal-pay" class="button -underline_white article__button" data-gutter="#modal-pay" data-toggle="modal">Купить журнал</a>
+                            <a href="#modal-pay" class="button -underline_white article__button" data-gutter="#modal-pay" data-toggle="modal">@lang('app.buy')</a>
                         @endif
 
                         <div class="article__img">
@@ -62,7 +62,7 @@
                                 @if(isset($document_list) && count($document_list) > 0)
 
                                     <div class="article__info mb-20">
-                                        <p>Файлы для скачивания</p>
+                                        <p>@lang('app.download')</p>
 
                                         @foreach($document_list as $key => $item)
 
@@ -87,7 +87,7 @@
                                 @endif
 
                                 @if($magazine->magazine_price > 0)
-                                 <a href="#modal-pay" class="button -default -md mt-4" data-gutter="#modal-pay" data-toggle="modal">Купить журнал</a>
+                                 <a href="#modal-pay" type="button" class="button -default -md mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" data-gutter="#modal-pay">@lang('app.buy')</a>
                                 @endif
 
                             </div>

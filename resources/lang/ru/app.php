@@ -69,5 +69,14 @@ return [
     'materials' => 'материалов',
     'all_events' => 'Все события',
     'view_all_publications' => 'Посмотреть все публикации',
-
+	'legislation_review' => 'Новости законодательства ',
+	'our_projects' => 'Наши проекты',
+	'training' => 'Семинары',
+	'our_paper' => 'Наш журнал',
+	'view_all' => 'Все журналы',
+	'our_members' => 'Члены ассоциации',
+	'our_partners' => 'Партнеры',
+	'download' => 'Скачать',
+	'registration' => 'Регистрация',
+	'buy' => 'Купить'
 ];

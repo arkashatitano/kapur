@@ -7,7 +7,7 @@
             </a>
             <div class="blog__date">{{\App\Http\Helpers::getDateFormat3($item->seminar_date)}}</div>
             <div class="blog__text">{{$item['seminar_name_'.$lang]}}</div>
-            <a href="{{$item['seminar_url_'.$lang]}}" class="button -underline">Подробнее</a>
+            <a href="{{$item['seminar_url_'.$lang]}}" class="button -underline">@lang('app.read_more')</a>
         </div>
     </div>
 
