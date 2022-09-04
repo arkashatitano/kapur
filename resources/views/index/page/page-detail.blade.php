@@ -42,8 +42,6 @@
                 <article class="article">
                     <header class="article__header1">
                         <h1 class="page__header-title">{{$menu['menu_name_'.$lang]}}</h1>
-                        @if()
-                        @endif
                     </header>
                     <div class="article__body">
                         <div class="row" data-gutter="50">
