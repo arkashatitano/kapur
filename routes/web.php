@@ -111,7 +111,6 @@ Route::group([
 ], function() {
 
     Route::post('ajax/register', 'SeminarController@register');
-    Route::post('ajax/magazine/buy/cash', 'MagazineController@buyByCash');
     Route::post('ajax/publication/buy', 'PublicationController@buyPublication');
 
 	Route::post('ajax/magazine/buy', 'MagazineController@buyMagazine');
