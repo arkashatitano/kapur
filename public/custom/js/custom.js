@@ -494,8 +494,9 @@ function payMagazine(){
 
 function buyByCashMagazine() {
     $('.ajax-loader').fadeIn(100);
+    g_pay_type = $('.pay_type:checked').val();
     $.ajax({
-        url:'/ajax/magazine/buy/cash',
+        url:'/ajax/magazine/buy',
         type: 'POST',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -512,7 +513,8 @@ function buyByCashMagazine() {
             fax: $('#fax').val(),
             city_name: $('#city_name').val(),
             company_info: $('#company_info').val(),
-            director_name: $('#director_name').val()
+            director_name: $('#director_name').val(),
+            comment: $('#comment').val()
         },
         success: function (data) {
             $('.ajax-loader').fadeOut(100);
@@ -520,8 +522,8 @@ function buyByCashMagazine() {
                 showError(data.error);
                 return;
             }
-            $('#comment').val('');
-            $('#pay-information').modal('hide');
+            $('#clean').val('');
+            $('#modal-pay').modal('hide');
 
             if(data.is_online == 1){
                 window.location.href = data.href;
