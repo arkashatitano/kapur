@@ -522,7 +522,7 @@ function buyByCashMagazine() {
                 showError(data.error);
                 return;
             }
-            $('#clean').val('');
+            $('.clean').val('');
             $('#modal-pay').modal('hide');
 
             if(data.is_online == 1){
