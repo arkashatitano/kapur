@@ -88,17 +88,31 @@
 
                                 @if($magazine->magazine_price > 0)
 
-                                    <div>
-                                        <strong>
-                                            <span style="color:#003399; font-size: 16px">Подписку на журнал Вы можете оформить:</span>
-                                        </strong>
-                                        <ol class="fancy_list">
-                                            <li>В любом отделении АО "Казпочта", индекс подписного издания 75180, <br> Основной Каталог подписных изданий. (для физических и юридических лиц)</li>
-                                            <li>Оформить подписку на сайте <a href="http://www.postmarket.kz/">http://www.postmarket.kz/</a>, (для физических лиц)</li>
-                                            <li><a class="ke-insertfile" href="/custom/wysiwyg/image/file/20200528/20200528172943_47050.docx" target="_blank">По договору</a> (для юридических лиц)</li>
-                                        </ol>
-                                        <a href="#modal-pay" type="button" class="button -default -md " data-toggle="modal" data-gutter="#modal-pay">@lang('app.buy')</a>
-                                    </div>
+                                    @if(app()->getLocale() == 'ru')
+                                            <div class="mt-3">
+                                                <strong>
+                                                    <span style="color:#003399; font-size: 16px">Подписку на журнал Вы можете оформить:</span>
+                                                </strong>
+                                                <ol class="fancy_list">
+                                                    <li>В любом отделении АО "Казпочта", индекс подписного издания 75180, <br> Основной Каталог подписных изданий. (для физических и юридических лиц)</li>
+                                                    <li>Оформить подписку на сайте <a href="http://www.postmarket.kz/">http://www.postmarket.kz/</a>, (для физических лиц)</li>
+                                                    <li><a class="ke-insertfile" href="/custom/wysiwyg/image/file/20200528/20200528172943_47050.docx" target="_blank">По договору</a> (для юридических лиц)</li>
+                                                </ol>
+                                                <a href="#modal-pay" type="button" class="button -default -md " data-toggle="modal" data-gutter="#modal-pay">@lang('app.buy')</a>
+                                            </div>
+                                        @elseif(app()->getLocale() == 'kz')
+                                            <div class="mt-3">
+                                                <strong>
+                                                    <span style="color:#003399; font-size: 16px">Сіз журналға жазылысты рәсімдей аласыз:</span>
+                                                </strong>
+                                                <ol class="fancy_list">
+                                                    <li>«Қазпочта» АҚ кез келген бөлімшесінде, басылымының индексі 75180, <br> Басылымдардың негізгі каталогы. (жеке және заңды тұлғалар үшін)</li>
+                                                    <li><a href="http://www.postmarket.kz/">http://www.postmarket.kz/</a> сайтында, (жеке тұлғалар үшін)</li>
+                                                    <li><a class="ke-insertfile" href="/custom/wysiwyg/image/file/20200528/20200528172943_47050.docx" target="_blank">Шарт бойынша</a>  (заңды тұлғалар үшін)</li>
+                                                </ol>
+                                                <a href="#modal-pay" type="button" class="button -default -md " data-toggle="modal" data-gutter="#modal-pay">@lang('app.buy')</a>
+                                            </div>
+                                    @endif
                                 @endif
 
                             </div>
