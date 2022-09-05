@@ -243,3 +243,7 @@
 @media screen and (max-width: 480px){
 
 }
+
+.fancy_list li {
+    padding-bottom: 10px;
+}

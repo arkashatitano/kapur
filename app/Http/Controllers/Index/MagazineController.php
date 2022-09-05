@@ -231,4 +231,53 @@ class MagazineController extends Controller
             }
         }
     }
+
+	public function buyMagazine(Request $request)
+	{
+
+		$validator = Validator::make($request->all(), [
+			'user_name' => 'required',
+			'magazine_id' => 'required',
+			'phone' => 'required|string',
+			'email' => 'required|email'
+		]);
+
+		if ($validator->fails()) {
+			$messages = $validator->errors();
+			$error = $messages->all();
+			$result['status'] = false;
+			$result['error'] = 'Вам следует указать необходимые данные';
+			return $result;
+		}
+
+		$contact = new Order();
+		$contact->user_name = $request->user_name;
+		$contact->phone = $request->phone;
+		$contact->email = $request->email;
+		$contact->magazine_id = $request->magazine_id;
+		$contact->organization_name = $request->organization_name;
+		$contact->position = $request->position;
+		$contact->work_phone = $request->work_phone;
+		$contact->city_name = $request->city_name;
+		$contact->director_name = $request->director_name;
+		$contact->company_info = $request->company_info;
+		$contact->fax = $request->fax;
+		$contact->is_show = 1;
+		$contact->comment = $request->comment;
+		$contact->pay_type = $request->pay_type;
+		$contact->save();
+
+		$magazine = Magazine::where('magazine_id',$request->magazine_id)->first();
+
+		$contact->magazine_name_ru = $magazine->magazine_name_ru;
+
+		$email = 'kbcsd@kap.kz';
+		$result_email = Mail::to($email)->send(new OrderEmail($contact));
+
+		$result['result_email'] = $result_email;
+		$result['status'] = true;
+		$result['message'] = 'Успешно отправлено';
+
+		return response()->json($result);
+	}
 }

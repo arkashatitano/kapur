@@ -114,6 +114,8 @@ Route::group([
     Route::post('ajax/magazine/buy/cash', 'MagazineController@buyByCash');
     Route::post('ajax/publication/buy', 'PublicationController@buyPublication');
 
+	Route::post('ajax/magazine/buy', 'MagazineController@buyMagazine');
+
     Route::get('/', 'IndexController@index');
 
     Route::get('contact', 'IndexController@showContact');
