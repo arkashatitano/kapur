@@ -573,3 +573,12 @@ function buyArticle() {
 function showPayFormArticle(){
     $('#pay-information').modal('show');
 }
+
+$('.pay_type').change(function () {
+    if ($(this).val() == 0){
+        $('.comment_user').fadeIn(0)
+    }
+    else{
+        $('.comment_user').fadeOut(0)
+    }
+});

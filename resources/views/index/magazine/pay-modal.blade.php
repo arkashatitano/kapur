@@ -54,10 +54,14 @@
                                 <input class="with-gap pay_type clean" name="pay_type" value="Второй квартал" type="radio" id="test5" />
                                 <label for="test5">Второй квартал</label>
                             </div>
+                            <div class="mb-2 mt-3 mb-sm-0 mr-3">
+                                <input class="with-gap pay_type clean" name="pay_type" value="0" type="radio" id="test6" />
+                                <label for="test6">Другое</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="control">
+                <div class="control comment_user" style="display: none;">
                     <div class="control__group">
                         <input type="text" id="comment" class="clean control__input" required />
                         <label class="control__label">Свой ответ</label>
